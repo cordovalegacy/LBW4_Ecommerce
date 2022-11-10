@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import HomePage from './components/Home';
@@ -34,17 +34,41 @@ function App() {
     ]);
 
     const [user, setLoginUser] = useState({});
+    const [isOpen, setIsOpen] = useState(false);
+    const [displayName, setDisplayName] = useState("")
+
+    const handleOpen = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const handleClose = () => {
+        setIsOpen(!isOpen);
+    };
+
+    useEffect(() => {
+        axios.get('http://localhost:8000/api/users',
+            { withCredentials: true }
+        )
+            .then((res) => {
+                console.log(res.data);
+                setDisplayName(res.data.username);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }, []);
 
     const logout = async () => {
         try {
             const res = await axios.post('http://localhost:8000/api/users/logout',
-            //as a post request, we must add an object or something of some kind
-            //because we are not adding anything to the db, we can send an empty object 
-            {},
-            { withCredentials: true });
+                //as a post request, we must add an object or something of some kind
+                //because we are not adding anything to the db, we can send an empty object 
+                {},
+                { withCredentials: true });
             console.log(res);
-            console.log(res.data)
-            alert("You have logged out")
+            console.log(res.data);
+            alert("You have logged out");
+            window.location.reload(false);
         } catch (err) {
             console.log(err.response);
         }
@@ -63,9 +87,22 @@ function App() {
                     <Link to='/computers/cart'><img id='cart' src={CartIcon} alt='cart' /></Link>
                     <br />
                     <div className="home-login-registration">
-                        <Link to='/computers/profile/:username'>Profile</Link>
-                        <Link to='/computers/logreg'>Register/Login</Link>
-                        <button id='logout-btn' onClick={logout}>Logout</button>
+                        {!isOpen ? (
+                            <button id='account-btn' onClick={handleOpen}>Account</button>
+                        ) : null}
+                        <br />
+                        {isOpen ? (
+                            <div className='menu-spacer'>
+                                <div className='menu'>
+                                    <Link to='/computers/profile/:username'>Profile</Link>
+                                    <Link to='/computers/logreg'>Register/Login</Link>
+                                    <button id='logout-btn' onClick={logout}>Logout</button>
+                                    <button id='account-close-btn' onClick={handleClose}>Close</button>
+                                </div>
+                                {isOpen ? <div id='display-name'>{displayName}</div> : null}
+                            </div>
+                        ) : null}
+                        {!isOpen ? <div id='display-name'>{displayName}</div> : null}
                     </div>
                 </nav>
                 <Routes>

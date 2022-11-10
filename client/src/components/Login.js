@@ -27,6 +27,7 @@ const Login = (props) => {
                 console.log(res.data, "is res data!");
                 console.log(res.data.userLoggedIn);
                 navigate('/');
+                window.location.reload(false);
             })
             .catch((err) => {
                 console.log(err.response.data);

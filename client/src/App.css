@@ -1125,15 +1125,6 @@ tr{
   background: url(https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80);
 }
 
-#login-form-description{
-  margin-top: -15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
 .logreg-container{
   display: flex;
   flex-direction: column;
@@ -1221,6 +1212,99 @@ tr{
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 /* LOGIN REGISTRATION SECTION END */
+
+/* PROFILE SECTION START */
+
+#account-btn{
+  background-image: linear-gradient(to bottom, rgba(255, 208, 0, 0.300), rgba(0, 0, 0, 0.300), rgba(255, 208, 0, 0.300));
+  border: 0.5px solid gray;
+  box-shadow: 1px 1px 5px 1px gray;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#account-btn:hover{
+  background-image: linear-gradient(to right, rgba(255, 208, 0, 0.300), rgba(0, 0, 0, 0.300), rgba(255, 208, 0, 0.300));
+  border: 0.5px solid gray;
+  box-shadow: 0px 0px 10px 0px goldenrod;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#account-close-btn{
+  background-color: transparent;
+  border: none;
+  color: whitesmoke;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 11px;
+  font-weight: bolder;
+}
+
+#account-close-btn:hover{
+  background-color: transparent;
+  border: none;
+  color: red;
+  transition: 500ms;
+  cursor: pointer;
+}
+
+#login-form-description{
+  position: relative;
+  margin-top: -15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  top: 25%;
+  left: 70%;
+  gap: 5px;
+  border-right: 5px solid gray;
+  padding-right: 5px;
+  border-radius: 5px;
+}
+
+.menu-spacer{
+  width: 100%;
+  margin-left: 200px;
+  margin-right: 5%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+#display-name{
+  padding-left: 4%;
+  border-left: 2px solid gray;
+  text-align: left;
+  font-size: 12px;
+  color: gold;
+  text-emphasis-color: gold;
+  -webkit-text-stroke: 0.5px white;
+}
+
+#display-name::before{
+  content: "Welcome! "
+}
+
+#profile-header{
+  font-size: 2em;
+  color: goldenrod;
+  text-decoration: underline lightslategray;
+  text-shadow: 0px 0px 10px;
+}
+
+/* PROFILE SECTION END */
 
 /* FOOTER SECTION START */
 
