@@ -57,7 +57,7 @@ module.exports = {
                                     //httpOnly is for added security
                                     {
                                         httpOnly: true,
-                                        expires: new Date(Date.now() + 90000000)
+                                        expires: new Date(Date.now() + 9000000)
                                     }
                                 ).json({
                                     message: "Success!! !! !!",

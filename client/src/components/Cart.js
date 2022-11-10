@@ -146,7 +146,7 @@ const Cart = (props) => {
                                             <li id="cart-list">Storage:  {product.storage}</li>
                                             <li id="cart-list">Cooling:  {product.cooling}</li>
                                         </ul>
-                                        <button id="cart-btn-checkout" onClick={() => navigate(`/computers/checkout/${product._id}`)}>Checkout</button>
+                                        <button id="cart-btn-checkout" onClick={() => navigate(`/computers/order/${product._id}`)}>Review Order</button>
                                     </td>
                                 </tr>
                             </div>

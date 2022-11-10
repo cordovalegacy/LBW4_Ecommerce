@@ -14,6 +14,7 @@ import Confirmation from './components/Confirmation';
 import Checkout from './components/Checkout';
 import LogReg from './views/LogReg';
 import Profile from './components/Profile';
+import Order from './components/Order';
 import Logo from './img/lb_logo_2.jpg';
 import CartIcon from './img/cart_icon.png';
 
@@ -69,6 +70,7 @@ function App() {
                 </nav>
                 <Routes>
                     <Route exact path='/' element={<HomePage />} />
+                    <Route path='/computers/order/:id' element={<Order />} />
                     <Route path='/computers/profile/:username' element={<Profile />} />
                     <Route path='/computers/logreg' element={<LogReg setLoginUser={setLoginUser} />} />
                     <Route path='/computers/gallery' element={<Gallery />} />
