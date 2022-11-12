@@ -251,7 +251,6 @@ label{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.200), rgba(128, 128, 128, 0.682), rgba(0, 0, 0, 0.200));
 }
 
@@ -1004,25 +1003,22 @@ tr{
 
 #checkout-header{
   text-align: center;
-  border: gold;
-  box-shadow: 1px 1px 10px 5px darkgoldenrod;
-  padding: 1%;
+  box-shadow: 1px 1px 10px 1px darkgoldenrod;
+  padding: 2%;
   font-size: 30px;
   font-weight: bold;
   text-emphasis-color: gold;
   -webkit-text-stroke: 1px gray;
-  text-shadow: 2px 1px 3px gold;
+  text-shadow: 1px 1px 3px gold;
   width: max-content;
   color: whitesmoke;
-  border-radius: 10px;
   background-image: linear-gradient(to bottom, rgba(128, 128, 128, 0.5), rgba(0, 0, 0, 0.300), rgba(128, 128, 128, 0.5));
 }
 
 .checkout-content-background{
   background-image: linear-gradient(to bottom, rgba(128, 128, 128, 0.5), rgba(0, 0, 0, 0.300), rgba(128, 128, 128, 0.5));
-  box-shadow: 1px 1px 10px 5px darkgoldenrod;
+  box-shadow: 1px 1px 10px 1px darkgoldenrod;
   padding: 8px;
-  border-radius: 10px;
   margin-top: -5%;
 }
 
@@ -1132,7 +1128,7 @@ tr{
 }
 
 #login-margin{
-  margin-bottom: -20%;
+  margin-bottom: -10%;
 }
 
 #login-form-headers{
@@ -1266,8 +1262,8 @@ tr{
   position: absolute;
   width: fit-content;
   height: fit-content;
-  top: 25%;
-  left: 70%;
+  top: 15%;
+  left: 75%;
   gap: 5px;
   border-right: 5px solid gray;
   padding-right: 5px;
@@ -1291,6 +1287,7 @@ tr{
   color: gold;
   text-emphasis-color: gold;
   -webkit-text-stroke: 0.5px white;
+  width: min-content;
 }
 
 #display-name::before{
@@ -1302,6 +1299,69 @@ tr{
   color: goldenrod;
   text-decoration: underline lightslategray;
   text-shadow: 0px 0px 10px;
+}
+
+.profile-details-btn{
+  background-color: lightgray;
+  border-radius: 10px 0px 0px 10px;
+  width: max-content;
+}
+
+.profile-details-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex: .5;
+  margin-top: 1%;
+}
+
+.profile-content-container{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  width: 60%;
+  height: fit-content;
+  margin-right: 10%;
+}
+
+.account-content{
+  color: white;
+  list-style: none;
+  text-align: left;
+}
+
+.account-content-wrapper{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: fit-content;
+  height: max-content;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 15px;
+}
+
+.account-content-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border: 3px solid darkgoldenrod;
+  background-color: gray;
+  opacity: .9;
+  box-shadow: 0px 0px 10px 0px gold;
+  text-align: left;
+  list-style: none;
+  min-height: 225px;
+  height: fit-content;
+  flex: 3;
+}
+
+.profile-details-btn:hover{
+  background-color: white;
+  border-right: 5px solid goldenrod;
+  padding: 7px;
+  transition: 300ms;
 }
 
 /* PROFILE SECTION END */

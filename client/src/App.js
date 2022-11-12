@@ -17,6 +17,8 @@ import Profile from './components/Profile';
 import Order from './components/Order';
 import Logo from './img/lb_logo_2.jpg';
 import CartIcon from './img/cart_icon.png';
+import Insta from './img/icons8-instagram.svg';
+import Youtube from './img/icons8-youtube-logo.svg';
 
 function App() {
 
@@ -94,12 +96,12 @@ function App() {
                         {isOpen ? (
                             <div className='menu-spacer'>
                                 <div className='menu'>
+                                    {isOpen ? <div style={{textAlign: "right", borderLeft: "none"}} id='display-name'>{displayName}</div> : null}
                                     <Link to='/computers/profile/:username'>Profile</Link>
                                     <Link to='/computers/logreg'>Register/Login</Link>
                                     <button id='logout-btn' onClick={logout}>Logout</button>
                                     <button id='account-close-btn' onClick={handleClose}>Close</button>
                                 </div>
-                                {isOpen ? <div id='display-name'>{displayName}</div> : null}
                             </div>
                         ) : null}
                         {!isOpen ? <div id='display-name'>{displayName}</div> : null}
@@ -121,7 +123,16 @@ function App() {
                     <Route path='/computers/confirmation' element={<Confirmation />} />
                 </Routes>
                 <footer>
+                    <h3>Connect with Legacy Builds LLC</h3>
+                    <a href="https://www.instagram.com/legacybuildspc/">
+                        <img id='social-link' src={Insta} alt='Link to Instagram' />
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCPm6ET8xaqRTYHL5tmRrpUQ/featured">
+                        <img id='social-link' src={Youtube} alt='Link to Youtube' />
+                    </a>
                     <p>Website by Brendan Cordova, Owner of Legacy Builds LLC.</p>
+                    <p>Instagram Link By: https://icons8.com/icons/set/instagram</p>
+                    <p>Instagram Link By: https://icons8.com/icons/set/youtube</p>
                 </footer>
             </div>
         </BrowserRouter>

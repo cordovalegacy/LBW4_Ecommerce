@@ -46,7 +46,7 @@ const Order = (props) => {
                     <h2 id="checkout-content">RAM: {orderCheckout.ram}</h2>
                     <h2 id="checkout-content">Storage: {orderCheckout.storage}</h2>
                     <h2 id="checkout-content">Cooling: {orderCheckout.cooling}</h2>
-                    <button id="checkout-btn" onClick={sendHandler}>Process Order</button>
+                    {/* <button id="checkout-btn" onClick={sendHandler}></button> */}
                 </div>
             </div>
         </div>
