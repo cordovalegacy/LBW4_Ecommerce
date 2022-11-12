@@ -206,7 +206,14 @@ const CustomForm = (props) => {
                     )
                     : null}
                 {isOpenAccount ? (
-                    <div style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-evenly" }} className="account-content-container">
+                    <div style={
+                        {
+                            flexDirection: "row",
+                            alignItems: "center",
+                            justifyContent: "space-evenly",
+                            padding: "1%"
+                        }
+                    } className="account-content-container">
                         <ul className="account-content-wrapper">
                             {user.username ? (<h3>{user.username}'s Information</h3>) : null}
                             <label>Name: </label>
@@ -225,7 +232,8 @@ const CustomForm = (props) => {
                                         textShadow: "none",
                                         textAlign: "center",
                                         width: "70%"
-                                    }}>Your quote will be sent to this email</p>
+                                    }
+                                }>Your quote will be sent to this email</p>
                             <li style={{ width: "min-content" }} className="account-content"><label id='exception'>Budget: </label>
                                 <select name='budget' id="custom-cpu" value={budget} defaultValue="Select"
                                     onChange={(e) => setBudget(e.target.value)}>
@@ -252,7 +260,14 @@ const CustomForm = (props) => {
                     </div>
                 ) : null}
                 {isOpenCpu ? (
-                    <div style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-evenly" }} className="account-content-container">
+                    <div style={
+                        {
+                            flexDirection: "row",
+                            alignItems: "flex-start",
+                            justifyContent: "space-evenly",
+                            padding: "1%"
+                        }
+                    } className="account-content-container">
                         <ul className="account-content-wrapper">
                             <h3>CPU</h3>
                             <label id='exception'>Central Processing Unit:</label>
@@ -266,26 +281,43 @@ const CustomForm = (props) => {
                             {errors.cpu ? <p id='error-red'>{errors.cpu.message}</p> : null}
                         </ul>
                         <p id='custom-form-alert'>
-                            <span style={{textAlign: "right"}} id='error-red'>What kind of cpu do you need? <hr /> </span>
-                            Your cpu will contribute to every task perform on your computer.
-                            <ul>
-                                <strong>Gaming?</strong>
-                                <hr/>
-                                <li style={{listStyle: "none"}}>We recommend <span id='error-red'>Ryzen 5 5600x</span></li>
-                                <br/>
-                                <strong>Gaming, Streaming, Workstation?</strong>
-                                <hr/>
-                                <li style={{listStyle: "none"}}>We recommend the <span id='error-red'>Ryzen 7 5800x</span></li>
-                                <br/>
+                            <span style={{ textAlign: "right" }} id='error-red'>What kind of cpu do you need? <hr /></span>
+                            Here is what we recommend...
+                            <ul style={
+                                {
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    textAlign: "center",
+                                    alignItems: "center",
+                                    width: "90%",
+                                    margin: "10px 0% 0px 0%",
+                                    padding: "10px"
+                                }
+                            }>
+                                <strong>Gaming:</strong>
+                                <hr />
+                                <span id='error-red'>Ryzen 5 5600x</span>
+                                <br />
+                                <strong>Gaming, Streaming, Workstation:</strong>
+                                <hr />
+                                <span id='error-red'>Ryzen 7 5800x</span>
+                                <br />
                                 <strong>Need a beast that can do everything?</strong>
-                                <hr/>
-                                <li style={{listStyle: "none"}}>We recommend <span id='error-red'>Ryzen 9 5900x</span></li>
+                                <hr />
+                                <span id='error-red'>Ryzen 9 5900x</span>
                             </ul>
                         </p>
                     </div>
                 ) : null}
                 {isOpenGpu ? (
-                    <div style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-evenly" }} className="account-content-container">
+                    <div style={
+                        {
+                            flexDirection: "row",
+                            alignItems: "flex-start",
+                            justifyContent: "space-evenly",
+                            padding: "1%"
+                        }
+                    } className="account-content-container">
                         <ul className="account-content-wrapper">
                             <h3>GPU</h3>
                             <label id='exception'>Graphics Processing Unit: </label>
@@ -300,11 +332,52 @@ const CustomForm = (props) => {
                             </select>
                             {errors.gpu ? <p id='error-red'>{errors.gpu.message}</p> : null}
                         </ul>
-                        <p id='custom-form-alert'><span id='error-red'>Please be logged in to continue... <hr /> </span>This form is meant to give the builder a better idea of what you are looking for so we can provide you an accurate quote. Upon submission we will reach out to you to follow up. We are excited to work with you here at legacy builds!</p>
+                        <p id='custom-form-alert'>
+                            <span style={{ textAlign: "right" }} id='error-red'>What kind of gpu do you need? <hr /> </span>
+                            Here is what we recommend...
+                            <ul style={
+                                {
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    textAlign: "center",
+                                    alignItems: "center",
+                                    width: "90%",
+                                    margin: "10px 0% 0px 0%",
+                                    padding: "10px"
+                                }
+                            }>
+                                <strong>1080p (high settings)</strong>
+                                <hr />
+                                <span id='error-red'>RTX 3050</span>
+                                <br />
+                                <strong>1080p (max settings)</strong>
+                                <hr />
+                                <span id='error-red'>RTX 3060</span>
+                                <br />
+                                <strong>1440p (high settings)</strong>
+                                <hr />
+                                <span id='error-red'>RTX 3070</span>
+                                <br />
+                                <strong>1440p (max settings + ray tracing)</strong>
+                                <hr />
+                                <span id='error-red'>RTX 3080</span>
+                                <br />
+                                <strong>4k (high settings)</strong>
+                                <hr />
+                                <span id='error-red'>RTX 3090</span>
+                            </ul>
+                        </p>
                     </div>
                 ) : null}
                 {isOpenRam ? (
-                    <div style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-evenly" }} className="account-content-container">
+                    <div style={
+                        {
+                            flexDirection: "row",
+                            alignItems: "flex-start",
+                            justifyContent: "space-evenly",
+                            padding: "1%"
+                        }
+                    } className="account-content-container">
                         <ul className="account-content-wrapper">
                             <h3>RAM</h3>
                             <label id='exception'>Random Access Memory: </label>
@@ -317,14 +390,47 @@ const CustomForm = (props) => {
                             </select>
                             {errors.ram ? <p id='error-red'>{errors.ram.message}</p> : null}
                         </ul>
-                        <p id='custom-form-alert'><span id='error-red'>Please be logged in to continue... <hr /> </span>This form is meant to give the builder a better idea of what you are looking for so we can provide you an accurate quote. Upon submission we will reach out to you to follow up. We are excited to work with you here at legacy builds!</p>
+                        <p id='custom-form-alert'>
+                            <span style={{ textAlign: "right" }} id='error-red'>What kind of ram do you need? <hr /></span>
+                            Here is what we recommend...
+                            <ul style={
+                                {
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    textAlign: "center",
+                                    alignItems: "center",
+                                    width: "90%",
+                                    margin: "10px 0% 0px 0%",
+                                    padding: "10px"
+                                }
+                            }>
+                                <strong>Gaming:</strong>
+                                <hr />
+                                <span id='error-red'>16gb</span>
+                                <br />
+                                <strong>Gaming, Streaming, Workstation:</strong>
+                                <hr />
+                                <span id='error-red'>32gb</span>
+                                <br />
+                                <strong>Overkill?</strong>
+                                <hr />
+                                <span id='error-red'>64gb</span>
+                            </ul>
+                        </p>
                     </div>
                 ) : null}
                 {isOpenStorage ? (
-                    <div style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-evenly" }} className="account-content-container">
+                    <div style={
+                        {
+                            flexDirection: "row",
+                            alignItems: "flex-start",
+                            justifyContent: "space-evenly",
+                            padding: "1%"
+                        }
+                    } className="account-content-container">
                         <ul className="account-content-wrapper">
                             <h3>Storage</h3>
-                            <label id='exception'>Solid State Drives/Hard Disk Drives: </label>
+                            <label id='exception'>Solid State Drives/ Hard Disk Drives: </label>
                             <select name='storage' id="custom-storage" value={storage} defaultValue="Select"
                                 onChange={(e) => setStorage(e.target.value)}>
                                 <option value="" disabled selected>Select Storage</option>
@@ -336,11 +442,49 @@ const CustomForm = (props) => {
                             </select>
                             {errors.storage ? <p id='error-red'>{errors.storage.message}</p> : null}
                         </ul>
-                        <p id='custom-form-alert'><span id='error-red'>Please be logged in to continue... <hr /> </span>This form is meant to give the builder a better idea of what you are looking for so we can provide you an accurate quote. Upon submission we will reach out to you to follow up. We are excited to work with you here at legacy builds!</p>
+                        <p id='custom-form-alert'>
+                            <span style={{ textAlign: "right" }} id='error-red'>What kind of storage do you need? <hr /> </span>
+                            Here is what we recommend...
+                            <ul style={
+                                {
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    textAlign: "center",
+                                    alignItems: "center",
+                                    width: "90%",
+                                    margin: "10px 0% 0px 0%",
+                                    padding: "10px"
+                                }
+                            }>
+                                <h3>SSD vs. HDD</h3>
+                                <em>SSD - faster, more expensive</em>
+                                -VS-
+                                <em>HDD - slower, less expensive</em>
+                                <hr />
+                                <strong>On a budget:</strong>
+                                <hr />
+                                <span id='error-red'>500gb ssd</span>
+                                <br />
+                                <strong>Balanced</strong>
+                                <hr />
+                                <span id='error-red'>1tb ssd or 2tb hdd</span>
+                                <br />
+                                <strong>Planning on playing AAA games?</strong>
+                                <hr />
+                                <span id='error-red'>2tb ssd</span>
+                            </ul>
+                        </p>
                     </div>
                 ) : null}
                 {isOpenCooling ? (
-                    <div style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-evenly" }} className="account-content-container">
+                    <div style={
+                        {
+                            flexDirection: "row",
+                            alignItems: "flex-start",
+                            justifyContent: "space-evenly",
+                            padding: "1%"
+                        }
+                    } className="account-content-container">
                         <ul className="account-content-wrapper">
                             <h3>Cooling</h3>
                             <label id='exception'>Cpu Cooler: </label>
@@ -354,21 +498,78 @@ const CustomForm = (props) => {
                             </select>
                             {errors.cooling ? <p id='error-red'>{errors.cooling.message}</p> : null}
                         </ul>
-                        <p id='custom-form-alert'><span id='error-red'>Please be logged in to continue... <hr /> </span>This form is meant to give the builder a better idea of what you are looking for so we can provide you an accurate quote. Upon submission we will reach out to you to follow up. We are excited to work with you here at legacy builds!</p>
+                        <p id='custom-form-alert'>
+                            <span style={{ textAlign: "right" }} id='error-red'>What kind of cooler do you need? <hr /> </span>
+                            Here is what we recommend...
+                            <ul style={
+                                {
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    textAlign: "center",
+                                    alignItems: "center",
+                                    width: "90%",
+                                    margin: "10px 0% 0px 0%",
+                                    padding: "10px"
+                                }
+                            }>
+                                <strong>Gaming:</strong>
+                                <hr />
+                                <span id='error-red'>Stock Air Cooler</span>
+                                <br />
+                                <strong>Gaming, Streaming, Workstation:</strong>
+                                <hr />
+                                <span id='error-red'>All-in-one-liquid-cooler (AIO)</span>
+                                <br />
+                                <strong>Feeling luxurious?</strong>
+                                <hr />
+                                <span id='error-red'>AIO with a mounted LCD Display</span>
+                            </ul>
+                        </p>
                     </div>
                 ) : null}
                 {isOpenMisc ? (
-                    <div style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-evenly" }} className="account-content-container">
+                    <div style={
+                        {
+                            flexDirection: "row",
+                            alignItems: "flex-start",
+                            justifyContent: "space-evenly",
+                            padding: "1%"
+                        }
+                    } className="account-content-container">
                         <ul className="account-content-wrapper">
                             <h3>MISC</h3>
                             <label>Theme: </label>
                             <input type='text' name='theme' value={theme} placeholder='color, bobblehead, style?' onChange={(e) => setTheme(e.target.value)} />
                             {errors.theme ? <p id='error-red'>{errors.theme.message}</p> : null}
                             <label>Special Requests: <span id='optional'>optional</span></label>
-                            <input type='text' name='special' id='custom-form-spacer' value={special} placeholder='color, bobblehead, style?' onChange={(e) => setSpecial(e.target.value)} />
+                            <input type='text' name='special' id='custom-form-spacer' value={special} placeholder='extra fans, specific parts?' onChange={(e) => setSpecial(e.target.value)} />
                             <button type='submit' id='custom-form-btn' onClick={submitHandler}>Submit</button>
                         </ul>
-                        <p id='custom-form-alert'><span id='error-red'>Please be logged in to continue... <hr /> </span>This form is meant to give the builder a better idea of what you are looking for so we can provide you an accurate quote. Upon submission we will reach out to you to follow up. We are excited to work with you here at legacy builds!</p>
+                        <p id='custom-form-alert'>
+                            <span style={{ textAlign: "right" }} id='error-red'>Tell us about your style! <hr /> </span>
+                            Include color scheme, theme, size, features, extra fans, fancy cables, bobblehead, etc.
+                            <ul style={
+                                {
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    textAlign: "center",
+                                    alignItems: "center",
+                                    width: "90%",
+                                    margin: "10px 0% 0px 0%",
+                                    padding: "10px"
+                                }
+                            }>
+                                <strong>Examples:</strong>
+                                <hr />
+                                <span id='error-red'>Full tower chassis</span>
+                                <br/>
+                                <span id='error-red'>White and crystal blue</span>
+                                <br/>
+                                <span id='error-red'>A graphics card that wasn't specified</span>
+                                <br/>
+                                <span id='error-red'>Super-hero themed</span>  
+                            </ul>
+                        </p>
                     </div>
                 ) : null}
             </div>

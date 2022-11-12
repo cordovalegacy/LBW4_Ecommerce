@@ -272,6 +272,18 @@ label{
   box-shadow: 1px 1px 2px 1px gray;
 }
 
+#custom-form-alert{
+  width: fit-content;
+  color: white;
+  text-shadow: 2px 2px 4px gray;
+  text-emphasis: white;
+  background-color: darkgoldenrod;
+  border: 1px solid gray;
+  padding: 1%;
+  box-shadow: 1px 1px 2px 1px gray;
+  text-align: left;
+}
+
 label{
   margin-top: 15px;
   margin-bottom: 5px;
@@ -315,6 +327,13 @@ select, input{
 #error-red{
   color: red;
   font-weight: bold;
+  -webkit-text-stroke: 0.5px black;
+}
+
+#attn-gold{
+  color: white;
+  -webkit-text-stroke: 0.5px gray;
+  text-emphasis: white;
 }
 
 /* CUSTOM FORM END */
@@ -455,7 +474,6 @@ select, input{
   -webkit-text-stroke: 1px gray;
   text-emphasis-color: gold;
   text-shadow: 1px 2px 4px gray;
-  background-image: linear-gradient(to right, rgba(255, 217, 0, 0.5), silver, whitesmoke, rgba(255, 217, 0, 0.8), whitesmoke, silver, rgba(255, 217, 0, 0.5));
 }
 
 #about-me-content-paragraph{
