@@ -33,6 +33,7 @@ function App() {
         { index: 7, "cooling": "Stock (air)" },
         { index: 8, "case": "mATX case w/ 6 fans" },
         { index: 9, "accessories": "vertical gpu riser cable" },
+        { index: 10, "price": "$950" },
     ]);
 
     const [user, setLoginUser] = useState({});
@@ -96,7 +97,7 @@ function App() {
                         {isOpen ? (
                             <div className='menu-spacer'>
                                 <div className='menu'>
-                                    {isOpen ? <div style={{textAlign: "right", borderLeft: "none"}} id='display-name'>{displayName}</div> : null}
+                                    {isOpen ? <div style={{ textAlign: "right", borderLeft: "none" }} id='display-name'>{displayName}</div> : null}
                                     <Link to='/computers/profile/:username'>Profile</Link>
                                     <Link to='/computers/logreg'>Register/Login</Link>
                                     <button id='logout-btn' onClick={logout}>Logout</button>

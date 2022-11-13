@@ -72,16 +72,16 @@ const Cart = (props) => {
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/users',
-        { withCredentials: true }
+            { withCredentials: true }
         )
-        .then((res) => {
-            console.log(res.data);
-            setUser(res.data);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-    }, []); 
+            .then((res) => {
+                console.log(res.data);
+                setUser(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }, []);
 
     return (
         <div className="cart-container">
@@ -140,6 +140,7 @@ const Cart = (props) => {
                                     </div>
                                     <td>
                                         <ul className="cart-column-2">
+                                            <li id="cart-list">Price:<span style={{ color: "gold", textDecoration: "underline" }}>{product.price}</span></li>
                                             <li id="cart-list">CPU:  {product.cpu}</li>
                                             <li id="cart-list">GPU:  {product.gpu}</li>
                                             <li id="cart-list">RAM:  {product.ram}</li>

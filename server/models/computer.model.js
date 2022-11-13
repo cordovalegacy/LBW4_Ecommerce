@@ -2,6 +2,11 @@ const mongoose = require('mongoose')
 
 const ComputerSchema = new mongoose.Schema({
 
+    price: 
+    {  
+        type: String
+    },
+
     cpu: 
     {  
         type: String,
