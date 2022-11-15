@@ -7,6 +7,11 @@ const ComputerSchema = new mongoose.Schema({
         type: String
     },
 
+    image: 
+    {  
+        type: String
+    },
+
     cpu: 
     {  
         type: String,

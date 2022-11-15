@@ -2,30 +2,13 @@ import { useEffect, useState } from "react";
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import Gear from '../img/gear.png';
+import Venom from '../img/inventory.jpg';
 
 const Cart = (props) => {
 
     const { orderList, setOrderList } = props;
     const { inventoryProduct, setInventoryProduct } = props;
     const [user, setUser] = useState({});
-
-    // const product = {
-    //     cpu: "Ryzen 5 5600x",
-    //     gpu : "RTX 3050",
-    //     ram : "16gb ddr4 3200mhz",
-    //     storage : "SSD, 500gb m.2 nvme",
-    //     psu : "750w 80+ gold",
-    //     motherboard : "b550M",
-    //     cooling : "Stock (air)",
-    //     case : "mATX case w/ 6 fans",
-    //     accessories : "vertical gpu riser cable",
-    //     theme: "green and black",
-    //     budget: "1200",
-    //     fullName: "Starter",
-    //     special: "Inventory - Pre-Build",
-    //     email: "N/A",
-    //     phoneNumber: 0,
-    // }
 
     const navigate = useNavigate();
 
@@ -86,8 +69,15 @@ const Cart = (props) => {
     return (
         <div className="cart-container">
             <table className="cart-container">
-                <Link to='/computers/customs'>Build Another</Link>
-                <h3 id="cart-header">Your Cart</h3>
+                <div className="cart-header-section">
+                    <h3 id="cart-header">Your Cart</h3>
+                    <div className="cart-link-spacer">
+                        <Link to='/computers/customs'>Build Another</Link>
+                        <Link to='/computers/inventory'>Inventory</Link>
+                    </div>
+                    <hr style={{ height: "2px", backgroundColor: "white", border: "none", width: "100%" }} />
+                    <br />
+                </div>
                 {
                     orderList.map((order, index) => (
                         <tbody>
@@ -132,7 +122,7 @@ const Cart = (props) => {
                                     <div className="cart-column">
                                         <div id="cart-center">
                                             <thead id="cart-custom">Mid-Tier</thead>
-                                            <img id="cart-gear" src={Gear} alt="gear" />
+                                            <img id='inventory-cart-pic' src={Venom} alt='computer-photo' />
                                             <p id="cart-custom">Inventory</p>
                                         </div>
                                         <div>
