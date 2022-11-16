@@ -10,6 +10,8 @@ const Cart = (props) => {
     const { inventoryProduct, setInventoryProduct } = props;
     const [user, setUser] = useState({});
 
+    const [quantity, setQuantity] = useState(0);
+
     const navigate = useNavigate();
 
     console.log(orderList);
@@ -28,7 +30,12 @@ const Cart = (props) => {
         axios.get('http://localhost:8000/api/computers/inventory')
             .then((res) => {
                 console.log(res.data);
-                setInventoryProduct(res.data);
+                // for (let i = 0; i < 2; i++) {
+                //         setQuantity(i);
+                //         if (quantity[i] < 2) {
+                        setInventoryProduct(res.data);
+                //     }
+                // }
             })
             .catch((err) => console.log(err));
     }, []);

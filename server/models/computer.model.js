@@ -12,6 +12,14 @@ const ComputerSchema = new mongoose.Schema({
         type: String
     },
 
+    quantity:
+    {
+        type: Number,
+        required: true,
+        min: [1, 'Only one of this product is available'],
+        default: 1
+    },
+
     cpu: 
     {  
         type: String,

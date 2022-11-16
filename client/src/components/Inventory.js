@@ -19,7 +19,8 @@ const Inventory = (props) => {
         cooling: "Stock (air)",
         case: "mATX case w/ 6 fans",
         accessories: "vertical gpu riser cable",
-        price: "$950"
+        price: "$950",
+        quantity: "1"
     }
 
     function denied() {
