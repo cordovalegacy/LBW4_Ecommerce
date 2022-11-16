@@ -91,7 +91,7 @@ function App() {
                     <br />
                     <div className="home-login-registration">
                         {!isOpen ? (
-                            <button id='account-btn' onClick={handleOpen}>Account</button>
+                            <button style={{width: "fit-content"}} id='account-btn' onClick={handleOpen}>Account</button>
                         ) : null}
                         <br />
                         {isOpen ? (

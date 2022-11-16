@@ -21,6 +21,7 @@ const CustomForm = (props) => {
     const [theme, setTheme] = useState("");
     const [special, setSpecial] = useState("");
     const [errors, setErrors] = useState({});
+    const [totalPrice, setTotalPrice] = useState(0);
 
     const navigate = useNavigate();
 
@@ -239,11 +240,11 @@ const CustomForm = (props) => {
                                     <select name='budget' id="custom-cpu" value={budget} defaultValue="Select"
                                         onChange={(e) => setBudget(e.target.value)}>
                                         <option value="" disabled selected>Select Budget</option>
-                                        <option value="Starter">Starter ~($1000)</option>
-                                        <option value="Mid-Tier">Mid-Tier ~($1500)</option>
-                                        <option value="High-End">High-End ~($2000)</option>
-                                        <option value="Super-Tier">Super-Tier ~($3000)</option>
-                                        <option value="Enthusiast">Enthusiast ~($4000+)</option>
+                                        <option value="$1000">Starter ~($1000)</option>
+                                        <option value="$1500">Mid-Tier ~($1500)</option>
+                                        <option value="$2000">High-End ~($2000)</option>
+                                        <option value="$3000">Super-Tier ~($3000)</option>
+                                        <option value="$4000+">Enthusiast ~($4000+)</option>
                                     </select>
                                     {errors.budget ? <p id='error-red'>{errors.budget.message}</p> : null}</li>
                                 <label>Phone Number: </label>
@@ -287,6 +288,9 @@ const CustomForm = (props) => {
                                     <option value="Ryzen 9 5900x">Ryzen 9 5900x</option>
                                 </select>
                                 {errors.cpu ? <p id='error-red'>{errors.cpu.message}</p> : null}
+                                <p id='budget-tag'>{budget}</p>
+                                <hr style={{ width: "100%" }} />
+                                <p id='price-tag'>{totalPrice}</p>
                             </ul>
                             <p id='custom-form-alert'>
                                 <span style={{ textAlign: "right" }} id='error-red'>What kind of cpu do you need? <hr /></span>
@@ -345,6 +349,9 @@ const CustomForm = (props) => {
                                     <option value="RTX 3090">RTX 3090</option>
                                 </select>
                                 {errors.gpu ? <p id='error-red'>{errors.gpu.message}</p> : null}
+                                <p id='budget-tag'>{budget}</p>
+                                <hr style={{ width: "100%" }} />
+                                <p id='price-tag'>{totalPrice}</p>
                             </ul>
                             <p id='custom-form-alert'>
                                 <span style={{ textAlign: "right" }} id='error-red'>What kind of gpu do you need? <hr /> </span>
@@ -409,6 +416,9 @@ const CustomForm = (props) => {
                                     <option value="64gb">64gb</option>
                                 </select>
                                 {errors.ram ? <p id='error-red'>{errors.ram.message}</p> : null}
+                                <p id='budget-tag'>{budget}</p>
+                                <hr style={{ width: "100%" }} />
+                                <p id='price-tag'>{totalPrice}</p>
                             </ul>
                             <p id='custom-form-alert'>
                                 <span style={{ textAlign: "right" }} id='error-red'>What kind of ram do you need? <hr /></span>
@@ -467,6 +477,9 @@ const CustomForm = (props) => {
                                     <option value="2tb hdd">2tb hdd</option>
                                 </select>
                                 {errors.storage ? <p id='error-red'>{errors.storage.message}</p> : null}
+                                <p id='budget-tag'>{budget}</p>
+                                <hr style={{ width: "100%" }} />
+                                <p id='price-tag'>{totalPrice}</p>
                             </ul>
                             <p id='custom-form-alert'>
                                 <span style={{ textAlign: "right" }} id='error-red'>What kind of storage do you need? <hr /> </span>
@@ -501,7 +514,7 @@ const CustomForm = (props) => {
                                 </ul>
                             </p>
                         </div>
-                        <div style={{marginTop: "-13px"}} className='custom-nav-buttons'>
+                        <div style={{ marginTop: "-13px" }} className='custom-nav-buttons'>
                             <button id='account-btn' onClick={handleOpenRam}>Prev</button>
                             <button id='account-btn' onClick={handleOpenCooling}>Next</button>
                         </div>
@@ -529,6 +542,9 @@ const CustomForm = (props) => {
                                     <option value="AIO LCD">AIO w/ LCD Screen (liquid)</option>
                                 </select>
                                 {errors.cooling ? <p id='error-red'>{errors.cooling.message}</p> : null}
+                                <p id='budget-tag'>{budget}</p>
+                                <hr style={{ width: "100%" }} />
+                                <p id='price-tag'>{totalPrice}</p>
                             </ul>
                             <p id='custom-form-alert'>
                                 <span style={{ textAlign: "right" }} id='error-red'>What kind of cooler do you need? <hr /> </span>
@@ -580,6 +596,9 @@ const CustomForm = (props) => {
                                 {errors.theme ? <p id='error-red'>{errors.theme.message}</p> : null}
                                 <label>Special Requests: <span id='optional'>optional</span></label>
                                 <input type='text' name='special' id='custom-form-spacer' value={special} placeholder='extra fans, specific parts?' onChange={(e) => setSpecial(e.target.value)} />
+                                <p id='budget-tag'>{budget}</p>
+                                <hr style={{ width: "100%" }} />
+                                <p id='price-tag'>{totalPrice}</p>
                                 <button type='submit' id='custom-form-btn' onClick={submitHandler}>Submit</button>
                             </ul>
                             <p id='custom-form-alert'>
@@ -609,7 +628,7 @@ const CustomForm = (props) => {
                             </p>
                         </div><div className='custom-nav-buttons'>
                             <button id='account-btn' onClick={handleOpenCooling}>Prev</button>
-                            <button style={{backgroundColor: "white", border: "2px dashed darkred"}} id='account-btn' onClick={handleOpenAccount}>Restart</button>
+                            <button style={{ backgroundColor: "white", border: "2px dashed darkred" }} id='account-btn' onClick={handleOpenAccount}>Restart</button>
                         </div>
                     </div>
                 ) : null}

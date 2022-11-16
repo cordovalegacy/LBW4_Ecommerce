@@ -369,6 +369,28 @@ select, input{
   flex-direction: column;
 }
 
+#budget-tag{
+  color: black;
+  -webkit-text-stroke: 0.25px gold;
+  font-weight: bold;
+
+}
+
+#budget-tag::before{
+  content: "Your budget: ";
+}
+
+#price-tag{
+  color: black;
+  -webkit-text-stroke: 0.25px greenyellow;
+  font-weight: bold;
+
+}
+
+#price-tag::before{
+  content: "Your price: ";
+}
+
 /* CUSTOM FORM END */
 
 /* ABOUT SECTION START */
@@ -926,6 +948,7 @@ select, input{
   display: flex;
   width: 100%;
   justify-content: space-evenly;
+  gap: 10px;
 }
 
 #inventory-cart-pic{
