@@ -377,7 +377,7 @@ select, input{
 }
 
 #budget-tag::before{
-  content: "Your budget: ";
+  content: "Your budget: $";
 }
 
 #price-tag{
@@ -388,7 +388,12 @@ select, input{
 }
 
 #price-tag::before{
-  content: "Your price: ";
+  content: "Your price: $";
+}
+
+#custom-disclosure-col{
+  display: flex;
+  flex-direction: column;
 }
 
 /* CUSTOM FORM END */

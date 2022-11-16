@@ -22,6 +22,7 @@ const CustomForm = (props) => {
     const [special, setSpecial] = useState("");
     const [errors, setErrors] = useState({});
     const [totalPrice, setTotalPrice] = useState(0);
+    const grandTotal = (totalPrice + parseInt(cpu) + parseInt(gpu) + parseInt(ram) + parseInt(storage) + parseInt(cooling))
 
     const navigate = useNavigate();
 
@@ -146,6 +147,7 @@ const CustomForm = (props) => {
                 setStorage("");
                 setTheme("");
                 setSpecial("");
+                setTotalPrice(totalPrice + parseInt(cpu) + parseInt(gpu) + parseInt(ram) + parseInt(storage) + parseInt(cooling))
                 navigate("/computers/cart");
             })
             .catch((err) => {
@@ -240,11 +242,11 @@ const CustomForm = (props) => {
                                     <select name='budget' id="custom-cpu" value={budget} defaultValue="Select"
                                         onChange={(e) => setBudget(e.target.value)}>
                                         <option value="" disabled selected>Select Budget</option>
-                                        <option value="$1000">Starter ~($1000)</option>
-                                        <option value="$1500">Mid-Tier ~($1500)</option>
-                                        <option value="$2000">High-End ~($2000)</option>
-                                        <option value="$3000">Super-Tier ~($3000)</option>
-                                        <option value="$4000+">Enthusiast ~($4000+)</option>
+                                        <option value="1000">Starter ~($1000)</option>
+                                        <option value="1500">Mid-Tier ~($1500)</option>
+                                        <option value="2000">High-End ~($2000)</option>
+                                        <option value="3000">Super-Tier ~($3000)</option>
+                                        <option value="4000+">Enthusiast ~($4000+)</option>
                                     </select>
                                     {errors.budget ? <p id='error-red'>{errors.budget.message}</p> : null}</li>
                                 <label>Phone Number: </label>
@@ -258,8 +260,10 @@ const CustomForm = (props) => {
                                 />
                                 {errors.phoneNumber ? <p id='error-red'>{errors.phoneNumber.message}</p> : null}
                             </ul>
-
-                            <p id='custom-form-alert'><span id='error-red'>Please be logged in to continue... <hr /> </span>This form is meant to give the builder a better idea of what you are looking for so we can provide you an accurate quote. Upon submission we will reach out to you to follow up. We are excited to work with you here at legacy builds!</p>
+                            <div id='custom-disclosure-col'>
+                                <p id='custom-form-alert'><span id='error-red'>Please be logged in to continue... <hr /> </span>This form is meant to give the builder a better idea of what you are looking for so we can provide you an accurate quote. <span id='error-red'>Upon submission we will reach out to you</span> to follow up. We are excited to work with you here at legacy builds!</p>
+                                <p id='custom-form-alert'><span id='error-red'>Attention! <hr /> </span>The prices vary dependent upon market value. The <span id='error-red'>price tally tool</span> only provides an <span id='error-red'>estimate</span>. Prices are subject to change. If quote is completed and submitted, we will reach out to you with an exact quote. <span id='error-red'>Select all available options in the form to get live price tally</span>. Enjoy! </p>
+                            </div>
                         </div>
                         <div
                             className='custom-nav-wrapper'>
@@ -283,14 +287,18 @@ const CustomForm = (props) => {
                                 <select name='cpu' id="custom-cpu" value={cpu} defaultValue="Select"
                                     onChange={(e) => setCpu(e.target.value)}>
                                     <option value="" disabled selected>Select Cpu</option>
-                                    <option value="Ryzen 5 5600x">Ryzen 5 5600x</option>
-                                    <option value="Ryzen 7 5800x">Ryzen 7 5800x</option>
-                                    <option value="Ryzen 9 5900x">Ryzen 9 5900x</option>
+                                    <option name="Ryzen 5 5600x" value="200">Ryzen 5 5600x ~($200)</option>
+                                    <option name="Ryzen 7 5800x" value="350">Ryzen 7 5800x ~($350)</option>
+                                    <option name="Ryzen 9 5900x" value="500">Ryzen 9 5900x ~($500)</option>
                                 </select>
                                 {errors.cpu ? <p id='error-red'>{errors.cpu.message}</p> : null}
                                 <p id='budget-tag'>{budget}</p>
                                 <hr style={{ width: "100%" }} />
-                                <p id='price-tag'>{totalPrice}</p>
+                                {
+                                    grandTotal < budget ? (
+                                        <p id='price-tag'>{grandTotal}</p>
+                                    ) : <p style={{ color: "red" }} id='price-tag'>{grandTotal}</p>
+                                }
                             </ul>
                             <p id='custom-form-alert'>
                                 <span style={{ textAlign: "right" }} id='error-red'>What kind of cpu do you need? <hr /></span>
@@ -342,16 +350,20 @@ const CustomForm = (props) => {
                                 <select name='gpu' id="custom-gpu" value={gpu} defaultValue="Select"
                                     onChange={(e) => setGpu(e.target.value)}>
                                     <option value="" disabled selected>Select Gpu</option>
-                                    <option value="RTX 3050">RTX 3050</option>
-                                    <option value="RTX 3060">RTX 3060</option>
-                                    <option value="RTX 3070">RTX 3070</option>
-                                    <option value="RTX 3080">RTX 3080</option>
-                                    <option value="RTX 3090">RTX 3090</option>
+                                    <option name="RTX 3050" value="200">RTX 3050</option>
+                                    <option name="RTX 3060" value="350">RTX 3060</option>
+                                    <option name="RTX 3070" value="500">RTX 3070</option>
+                                    <option name="RTX 3080" value="750">RTX 3080</option>
+                                    <option name="RTX 3090" value="950">RTX 3090</option>
                                 </select>
                                 {errors.gpu ? <p id='error-red'>{errors.gpu.message}</p> : null}
                                 <p id='budget-tag'>{budget}</p>
                                 <hr style={{ width: "100%" }} />
-                                <p id='price-tag'>{totalPrice}</p>
+                                {
+                                    grandTotal < budget ? (
+                                        <p id='price-tag'>{grandTotal}</p>
+                                    ) : <p style={{ color: "red" }} id='price-tag'>{grandTotal}</p>
+                                }
                             </ul>
                             <p id='custom-form-alert'>
                                 <span style={{ textAlign: "right" }} id='error-red'>What kind of gpu do you need? <hr /> </span>
@@ -411,14 +423,18 @@ const CustomForm = (props) => {
                                 <select name='ram' id="custom-ram" value={ram} defaultValue="Select"
                                     onChange={(e) => setRam(e.target.value)}>
                                     <option value="" disabled selected>Select Ram</option>
-                                    <option value="16gb">16gb</option>
-                                    <option value="32gb">32gb</option>
-                                    <option value="64gb">64gb</option>
+                                    <option name="16gb" value="100">16gb</option>
+                                    <option name="32gb" value="200">32gb</option>
+                                    <option name="64gb" value="450">64gb</option>
                                 </select>
                                 {errors.ram ? <p id='error-red'>{errors.ram.message}</p> : null}
                                 <p id='budget-tag'>{budget}</p>
                                 <hr style={{ width: "100%" }} />
-                                <p id='price-tag'>{totalPrice}</p>
+                                {
+                                    grandTotal < budget ? (
+                                        <p id='price-tag'>{grandTotal}</p>
+                                    ) : <p style={{ color: "red" }} id='price-tag'>{grandTotal}</p>
+                                }
                             </ul>
                             <p id='custom-form-alert'>
                                 <span style={{ textAlign: "right" }} id='error-red'>What kind of ram do you need? <hr /></span>
@@ -470,16 +486,20 @@ const CustomForm = (props) => {
                                 <select name='storage' id="custom-storage" value={storage} defaultValue="Select"
                                     onChange={(e) => setStorage(e.target.value)}>
                                     <option value="" disabled selected>Select Storage</option>
-                                    <option value="500gb ssd m.2 nvme">500gb ssd m.2 nvme</option>
-                                    <option value="1tb ssd m.2 nvme">1tb ssd m.2 nvme</option>
-                                    <option value="2tb ssd m.2 nvme">2tb ssd m.2 nvme</option>
-                                    <option value="1tb hdd">1tb hdd</option>
-                                    <option value="2tb hdd">2tb hdd</option>
+                                    <option name="500gb ssd m.2 nvme" value="75">500gb ssd m.2 nvme</option>
+                                    <option name="1tb ssd m.2 nvme" value="125">1tb ssd m.2 nvme</option>
+                                    <option name="2tb ssd m.2 nvme" value="250">2tb ssd m.2 nvme</option>
+                                    <option name="1tb hdd" value="40">1tb hdd</option>
+                                    <option name="2tb hdd" value="75">2tb hdd</option>
                                 </select>
                                 {errors.storage ? <p id='error-red'>{errors.storage.message}</p> : null}
                                 <p id='budget-tag'>{budget}</p>
                                 <hr style={{ width: "100%" }} />
-                                <p id='price-tag'>{totalPrice}</p>
+                                {
+                                    grandTotal < budget ? (
+                                        <p id='price-tag'>{grandTotal}</p>
+                                    ) : <p style={{ color: "red" }} id='price-tag'>{grandTotal}</p>
+                                }
                             </ul>
                             <p id='custom-form-alert'>
                                 <span style={{ textAlign: "right" }} id='error-red'>What kind of storage do you need? <hr /> </span>
@@ -536,15 +556,19 @@ const CustomForm = (props) => {
                                 <select name='cooling' id="custom-cooling" value={cooling} defaultValue="Select"
                                     onChange={(e) => setCooling(e.target.value)}>
                                     <option value="" disabled selected>Select Cooling</option>
-                                    <option value="Stock Air">Stock (air)</option>
-                                    <option value="Heavy Duty Air">Heavy Duty (air)</option>
-                                    <option value="AIO">AIO (liquid)</option>
-                                    <option value="AIO LCD">AIO w/ LCD Screen (liquid)</option>
+                                    <option name="Stock (air)" value="0">Stock (air)</option>
+                                    <option name="Heavy Duty (air)" value="60">Heavy Duty (air)</option>
+                                    <option name="AIO (air)" value="150">AIO (liquid)</option>
+                                    <option name="AIO w/ LCD Screen (air)" value="300">AIO w/ LCD Screen (liquid)</option>
                                 </select>
                                 {errors.cooling ? <p id='error-red'>{errors.cooling.message}</p> : null}
                                 <p id='budget-tag'>{budget}</p>
                                 <hr style={{ width: "100%" }} />
-                                <p id='price-tag'>{totalPrice}</p>
+                                {
+                                    grandTotal < budget ? (
+                                        <p id='price-tag'>{grandTotal}</p>
+                                    ) : <p style={{ color: "red" }} id='price-tag'>{grandTotal}</p>
+                                }
                             </ul>
                             <p id='custom-form-alert'>
                                 <span style={{ textAlign: "right" }} id='error-red'>What kind of cooler do you need? <hr /> </span>
@@ -573,7 +597,8 @@ const CustomForm = (props) => {
                                     <span id='error-red'>AIO with a mounted LCD Display</span>
                                 </ul>
                             </p>
-                        </div><div className='custom-nav-buttons'>
+                        </div>
+                        <div className='custom-nav-buttons'>
                             <button id='account-btn' onClick={handleOpenStorage}>Prev</button>
                             <button id='account-btn' onClick={handleOpenMisc}>Next</button>
                         </div>
@@ -598,8 +623,11 @@ const CustomForm = (props) => {
                                 <input type='text' name='special' id='custom-form-spacer' value={special} placeholder='extra fans, specific parts?' onChange={(e) => setSpecial(e.target.value)} />
                                 <p id='budget-tag'>{budget}</p>
                                 <hr style={{ width: "100%" }} />
-                                <p id='price-tag'>{totalPrice}</p>
-                                <button type='submit' id='custom-form-btn' onClick={submitHandler}>Submit</button>
+                                {
+                                    grandTotal < budget ? (
+                                        <p id='price-tag'>{grandTotal}</p>
+                                    ) : <p style={{ color: "red" }} id='price-tag'>{grandTotal}</p>
+                                }
                             </ul>
                             <p id='custom-form-alert'>
                                 <span style={{ textAlign: "right" }} id='error-red'>Tell us about your style! <hr /> </span>
@@ -626,9 +654,10 @@ const CustomForm = (props) => {
                                     <span id='error-red'>Super-hero themed</span>
                                 </ul>
                             </p>
-                        </div><div className='custom-nav-buttons'>
+                        </div>
+                        <div style={{marginTop: "-10px"}} className='custom-nav-buttons'>
                             <button id='account-btn' onClick={handleOpenCooling}>Prev</button>
-                            <button style={{ backgroundColor: "white", border: "2px dashed darkred" }} id='account-btn' onClick={handleOpenAccount}>Restart</button>
+                            <button type='submit' onClick={submitHandler} id='account-btn'>Submit</button>
                         </div>
                     </div>
                 ) : null}

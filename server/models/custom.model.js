@@ -77,6 +77,11 @@ const CustomSchema = new mongoose.Schema({
         maxLength : [100, "cannot exceed one-hundred characters"]
     },
 
+    totalPrice:
+    {
+        type: Number
+    },
+
     createdBy: 
     {
         type: mongoose.Schema.Types.ObjectId,
