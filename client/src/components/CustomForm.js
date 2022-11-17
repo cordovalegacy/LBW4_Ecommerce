@@ -22,7 +22,13 @@ const CustomForm = (props) => {
     const [special, setSpecial] = useState("");
     const [errors, setErrors] = useState({});
     const [totalPrice, setTotalPrice] = useState(0);
-    const grandTotal = (totalPrice + parseInt(cpu) + parseInt(gpu) + parseInt(ram) + parseInt(storage) + parseInt(cooling))
+    const motherboard = 200;
+    const powerSupply = 100;
+    const chassis = 150;
+    const grandTotal =
+        (
+            motherboard + powerSupply + chassis + totalPrice + parseInt(cpu) + parseInt(gpu) + parseInt(ram) + parseInt(storage) + parseInt(cooling)
+        )
 
     const navigate = useNavigate();
 
@@ -628,6 +634,7 @@ const CustomForm = (props) => {
                                         <p id='price-tag'>{grandTotal}</p>
                                     ) : <p style={{ color: "red" }} id='price-tag'>{grandTotal}</p>
                                 }
+                                <p style={{color: "darkred"}}>Indcluded in price is a compatible motherboard, power supply, and case (~$450 value)</p>
                             </ul>
                             <p id='custom-form-alert'>
                                 <span style={{ textAlign: "right" }} id='error-red'>Tell us about your style! <hr /> </span>
@@ -655,7 +662,7 @@ const CustomForm = (props) => {
                                 </ul>
                             </p>
                         </div>
-                        <div style={{marginTop: "-10px"}} className='custom-nav-buttons'>
+                        <div style={{ marginTop: "-9px" }} className='custom-nav-buttons'>
                             <button id='account-btn' onClick={handleOpenCooling}>Prev</button>
                             <button type='submit' onClick={submitHandler} id='account-btn'>Submit</button>
                         </div>
