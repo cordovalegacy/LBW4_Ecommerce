@@ -247,7 +247,7 @@ const CustomForm = (props) => {
                                             color: "goldenrod",
                                             textShadow: "none",
                                             textAlign: "center",
-                                            width: "70%"
+                                            width: "70%",
                                         }
                                     }>Your quote will be sent to this email</p>
                                 <li style={{ width: "min-content" }} className="account-content"><label id='exception'>Budget: </label>
@@ -273,14 +273,15 @@ const CustomForm = (props) => {
                                 {errors.phoneNumber ? <p id='error-red'>{errors.phoneNumber.message}</p> : null}
                             </ul>
                             <div id='custom-disclosure-col'>
-                                <p style={{ borderRadius: "5px" }}
+                                <p style={{ borderRadius: "5px", padding: "10px" }}
                                     id='custom-form-alert'>
                                     <span id='error-red'>Please be logged in to continue... <hr /></span>
                                     This form is meant to give the builder a better idea of what you are looking for so we can provide you an accurate quote.
                                     The <span id='error-red'>Price Tally Tool</span>
                                     only provides an <span id='error-red'>estimate</span>.
-                                    Prices are subject to change. If quote is completed and submitted, we will reach out to you with an exact quote. </p>
-                                    <p style={{ color: "gold" }}>Included in price is a compatible motherboard, power supply, and case (~$450 value)</p>
+                                    Prices are subject to change. If quote is completed and submitted, we will reach out to you with an exact quote.
+                                    <hr />
+                                    <span id='error-red'>Included in price is a compatible motherboard, power supply, and case (~$450 value)</span></p>
                             </div>
                         </div>
                         <div
@@ -302,12 +303,15 @@ const CustomForm = (props) => {
                             <ul className="account-content-wrapper">
                                 <h3>CPU</h3>
                                 <label id='exception'>Central Processing Unit:</label>
-                                <select name='cpu' id="custom-cpu" value={cpu} defaultValue="Select"
+                                <select name='cpu' id="custom-cpu" value={cpu} defaultValue={0}
                                     onChange={(e) => setCpu(e.target.value)}>
-                                    <option value="" disabled selected>Select Cpu</option>
+                                    <option value={0} disabled selected>Select Cpu</option>
                                     <option name="Ryzen 5 5600x" value={200}>Ryzen 5 5600x ~($200)</option>
-                                    <option name="Ryzen 7 5800x" value={350}>Ryzen 7 5800x ~($350)</option>
-                                    <option name="Ryzen 9 5900x" value={500}>Ryzen 9 5900x ~($500)</option>
+                                    <option name="Ryzen 7 5800x" value={250}>Ryzen 7 5800x ~($250)</option>
+                                    <option name="Ryzen 9 5900x" value={350}>Ryzen 9 5900x ~($350)</option>
+                                    <option name="Ryzen 9 5900x" value={300}>Ryzen 5 7600x ~($300)</option>
+                                    <option name="Ryzen 9 5900x" value={360}>Ryzen 7 7700x ~($360)</option>
+                                    <option name="Ryzen 9 5900x" value={550}>Ryzen 9 7900x ~($550)</option>
                                 </select>
                                 {errors.cpu ? <p id='error-red'>{errors.cpu.message}</p> : null}
                                 <p id='budget-tag'>{budget}</p>
@@ -321,28 +325,18 @@ const CustomForm = (props) => {
                             <p id='custom-form-alert'>
                                 <span style={{ textAlign: "right" }} id='error-red'>What kind of cpu do you need? <hr /></span>
                                 Here is what we recommend...
-                                <ul style={
-                                    {
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        textAlign: "center",
-                                        alignItems: "center",
-                                        width: "90%",
-                                        margin: "10px 0% 0px 0%",
-                                        padding: "10px"
-                                    }
-                                }>
+                                <ul className='parts-recommendation'>
                                     <strong>Gaming:</strong>
                                     <hr />
-                                    <span id='error-red'>Ryzen 5 5600x</span>
+                                    <span id='error-red'>Ryzen 5</span>
                                     <br />
                                     <strong>Gaming, Streaming, Workstation:</strong>
                                     <hr />
-                                    <span id='error-red'>Ryzen 7 5800x</span>
+                                    <span id='error-red'>Ryzen 7</span>
                                     <br />
                                     <strong>Need a beast that can do everything?</strong>
                                     <hr />
-                                    <span id='error-red'>Ryzen 9 5900x</span>
+                                    <span id='error-red'>Ryzen 9</span>
                                 </ul>
                             </p>
                         </div>
@@ -365,14 +359,15 @@ const CustomForm = (props) => {
                             <ul className="account-content-wrapper">
                                 <h3>GPU</h3>
                                 <label id='exception'>Graphics Processing Unit: </label>
-                                <select name='gpu' id="custom-gpu" value={gpu} defaultValue="Select"
+                                <select name='gpu' id="custom-gpu" value={gpu} defaultValue={0}
                                     onChange={(e) => setGpu(e.target.value)}>
-                                    <option value="" disabled selected>Select Gpu</option>
-                                    <option name="RTX 3050" value={200}>RTX 3050 ~($200)</option>
-                                    <option name="RTX 3060" value={350}>RTX 3060 ~($350)</option>
-                                    <option name="RTX 3070" value={500}>RTX 3070 ~($500)</option>
-                                    <option name="RTX 3080" value={750}>RTX 3080 ~($750)</option>
-                                    <option name="RTX 3090" value={950}>RTX 3090 ~($950)</option>
+                                    <option value={0} disabled selected>Select Gpu</option>
+                                    <option name="RTX 3050" value={300}>RTX 3050 ~($300)</option>
+                                    <option name="RTX 3060" value={400}>RTX 3060 ~($400)</option>
+                                    <option name="RTX 3070" value={550}>RTX 3070 ~($550)</option>
+                                    <option name="RTX 3080" value={800}>RTX 3080 ~($800)</option>
+                                    <option name="RTX 4080" value={1500}>RTX 4080 ~($1500)</option>
+                                    <option name="RTX 4090" value={2300}>RTX 4090 ~($2300)</option>
                                 </select>
                                 {errors.gpu ? <p id='error-red'>{errors.gpu.message}</p> : null}
                                 <p id='budget-tag'>{budget}</p>
@@ -386,17 +381,7 @@ const CustomForm = (props) => {
                             <p id='custom-form-alert'>
                                 <span style={{ textAlign: "right" }} id='error-red'>What kind of gpu do you need? <hr /> </span>
                                 Here is what we recommend...
-                                <ul style={
-                                    {
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        textAlign: "center",
-                                        alignItems: "center",
-                                        width: "90%",
-                                        margin: "10px 0% 0px 0%",
-                                        padding: "10px"
-                                    }
-                                }>
+                                <ul className='parts-recommendation'>
                                     <strong>1080p (high settings)</strong>
                                     <hr />
                                     <span id='error-red'>RTX 3050</span>
@@ -413,9 +398,13 @@ const CustomForm = (props) => {
                                     <hr />
                                     <span id='error-red'>RTX 3080</span>
                                     <br />
-                                    <strong>4k (high settings)</strong>
+                                    <strong>4k (max settings)</strong>
                                     <hr />
-                                    <span id='error-red'>RTX 3090</span>
+                                    <span id='error-red'>RTX 4080</span>
+                                    <br />
+                                    <strong>4k (max settings + ray tracing)</strong>
+                                    <hr />
+                                    <span id='error-red'>RTX 4090</span>
                                 </ul>
                             </p>
                         </div>
@@ -438,12 +427,12 @@ const CustomForm = (props) => {
                             <ul className="account-content-wrapper">
                                 <h3>RAM</h3>
                                 <label id='exception'>Random Access Memory: </label>
-                                <select name='ram' id="custom-ram" value={ram} defaultValue="Select"
+                                <select name='ram' id="custom-ram" value={ram} defaultValue={0}
                                     onChange={(e) => setRam(e.target.value)}>
-                                    <option value="" disabled selected>Select Ram</option>
-                                    <option name="16gb" value={100}>16gb</option>
-                                    <option name="32gb" value={200}>32gb</option>
-                                    <option name="64gb" value={450}>64gb</option>
+                                    <option value={0} disabled selected>Select Ram</option>
+                                    <option value={100}>16gb ~($100)</option>
+                                    <option value={200}>32gb ~($200)</option>
+                                    <option value={300}>64gb ~($300)</option>
                                 </select>
                                 {errors.ram ? <p id='error-red'>{errors.ram.message}</p> : null}
                                 <p id='budget-tag'>{budget}</p>
@@ -457,17 +446,7 @@ const CustomForm = (props) => {
                             <p id='custom-form-alert'>
                                 <span style={{ textAlign: "right" }} id='error-red'>What kind of ram do you need? <hr /></span>
                                 Here is what we recommend...
-                                <ul style={
-                                    {
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        textAlign: "center",
-                                        alignItems: "center",
-                                        width: "90%",
-                                        margin: "10px 0% 0px 0%",
-                                        padding: "10px"
-                                    }
-                                }>
+                                <ul className='parts-recommendation'>
                                     <strong>Gaming:</strong>
                                     <hr />
                                     <span id='error-red'>16gb</span>
@@ -501,14 +480,14 @@ const CustomForm = (props) => {
                             <ul className="account-content-wrapper">
                                 <h3>Storage</h3>
                                 <label id='exception'>Solid State Drives/ Hard Disk Drives: </label>
-                                <select name='storage' id="custom-storage" value={storage} defaultValue="Select"
+                                <select name='storage' id="custom-storage" value={storage} defaultValue={0}
                                     onChange={(e) => setStorage(e.target.value)}>
-                                    <option value="" disabled selected>Select Storage</option>
-                                    <option name="500gb ssd m.2 nvme" value="75">500gb ssd m.2 nvme</option>
-                                    <option name="1tb ssd m.2 nvme" value={125}>1tb ssd m.2 nvme</option>
-                                    <option name="2tb ssd m.2 nvme" value={250}>2tb ssd m.2 nvme</option>
-                                    <option name="1tb hdd" value={40}>1tb hdd</option>
-                                    <option name="2tb hdd" value={75}>2tb hdd</option>
+                                    <option value={0} disabled selected>Select Storage</option>
+                                    <option name="500gb ssd m.2 nvme" value={75}>500gb ssd m.2 nvme ~($75)</option>
+                                    <option name="1tb ssd m.2 nvme" value={125}>1tb ssd m.2 nvme ~($125)</option>
+                                    <option name="2tb ssd m.2 nvme" value={250}>2tb ssd m.2 nvme ~($250)</option>
+                                    <option name="1tb hdd" value={40}>1tb hdd ~($40)</option>
+                                    <option name="2tb hdd" value={75}>2tb hdd ~($75)</option>
                                 </select>
                                 {errors.storage ? <p id='error-red'>{errors.storage.message}</p> : null}
                                 <p id='budget-tag'>{budget}</p>
@@ -522,17 +501,7 @@ const CustomForm = (props) => {
                             <p id='custom-form-alert'>
                                 <span style={{ textAlign: "right" }} id='error-red'>What kind of storage do you need? <hr /> </span>
                                 Here is what we recommend...
-                                <ul style={
-                                    {
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        textAlign: "center",
-                                        alignItems: "center",
-                                        width: "90%",
-                                        margin: "10px 0% 0px 0%",
-                                        padding: "10px"
-                                    }
-                                }>
+                                <ul className='parts-recommendation'>
                                     <h3>SSD vs. HDD</h3>
                                     <em>SSD - faster, more expensive</em>
                                     -VS-
@@ -571,13 +540,13 @@ const CustomForm = (props) => {
                             <ul className="account-content-wrapper">
                                 <h3>Cooling</h3>
                                 <label id='exception'>Cpu Cooler: </label>
-                                <select name='cooling' id="custom-cooling" value={cooling} defaultValue="Select"
+                                <select name='cooling' id="custom-cooling" value={cooling} defaultValue={0}
                                     onChange={(e) => setCooling(e.target.value)}>
-                                    <option value="" disabled selected>Select Cooling</option>
-                                    <option name="Stock (air)" value={0}>Stock (air)</option>
-                                    <option name="Heavy Duty (air)" value={60}>Heavy Duty (air)</option>
-                                    <option name="AIO (air)" value={150}>AIO (liquid)</option>
-                                    <option name="AIO w/ LCD Screen (air)" value={300}>AIO w/ LCD Screen (liquid)</option>
+                                    <option value={0} disabled selected>Select Cooling</option>
+                                    <option name="Stock (air)" value={40}>Stock (air) ~($40)</option>
+                                    <option name="Heavy Duty (air)" value={60}>Heavy Duty (air) ~($60)</option>
+                                    <option name="AIO (air)" value={150}>AIO (liquid) ~($150)</option>
+                                    <option name="AIO w/ LCD Screen (air)" value={300}>AIO w/ LCD Screen (liquid) ~($300)</option>
                                 </select>
                                 {errors.cooling ? <p id='error-red'>{errors.cooling.message}</p> : null}
                                 <p id='budget-tag'>{budget}</p>
@@ -591,17 +560,7 @@ const CustomForm = (props) => {
                             <p id='custom-form-alert'>
                                 <span style={{ textAlign: "right" }} id='error-red'>What kind of cooler do you need? <hr /> </span>
                                 Here is what we recommend...
-                                <ul style={
-                                    {
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        textAlign: "center",
-                                        alignItems: "center",
-                                        width: "90%",
-                                        margin: "10px 0% 0px 0%",
-                                        padding: "10px"
-                                    }
-                                }>
+                                <ul className='parts-recommendation'>
                                     <strong>Gaming:</strong>
                                     <hr />
                                     <span id='error-red'>Stock Air Cooler</span>
@@ -629,7 +588,7 @@ const CustomForm = (props) => {
                                 flexDirection: "row",
                                 alignItems: "flex-start",
                                 justifyContent: "space-evenly",
-                                padding: "1%"
+                                padding: "1%",
                             }
                         } className="account-content-container">
                             <ul className="account-content-wrapper">
@@ -646,22 +605,13 @@ const CustomForm = (props) => {
                                         <p id='price-tag'>{grandTotal}</p>
                                     ) : <p style={{ color: "red" }} id='price-tag'>{grandTotal}</p>
                                 }
-                                <p style={{ color: "gold" }}>Indcluded in price is a compatible motherboard, power supply, and case (~$450 value)</p>
                             </ul>
                             <p id='custom-form-alert'>
-                                <span style={{ textAlign: "right" }} id='error-red'>Tell us about your style! <hr /> </span>
+                                <span style={{ textAlign: "right" }} id='error-red'>Tell us about your style! <hr /></span>
                                 Include color scheme, theme, size, features, extra fans, fancy cables, bobblehead, etc.
-                                <ul style={
-                                    {
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        textAlign: "center",
-                                        alignItems: "center",
-                                        width: "90%",
-                                        margin: "10px 0% 0px 0%",
-                                        padding: "10px"
-                                    }
-                                }>
+                                <hr />
+                                <p style={{ color: "white", textShadow: "2px 2px 5px black" }}>Included in price is a compatible motherboard, power supply, and case (~$450 value)</p>
+                                <ul className='parts-recommendation'>
                                     <strong>Examples:</strong>
                                     <hr />
                                     <span id='error-red'>Full tower chassis</span>
@@ -674,7 +624,7 @@ const CustomForm = (props) => {
                                 </ul>
                             </p>
                         </div>
-                        <div style={{ marginTop: "-5px" }} className='custom-nav-buttons'>
+                        <div style={{ marginTop: "-7px" }} className='custom-nav-buttons'>
                             <button id='account-btn' onClick={handleOpenCooling}>Prev</button>
                             <button type='submit' onClick={submitHandler} id='account-btn'>Submit</button>
                         </div>
