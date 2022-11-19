@@ -35,31 +35,31 @@ const CustomSchema = new mongoose.Schema({
     
     cpu: 
     {  
-        type: String,
+        type: Number,
         required : [true, "CPU is required"]
     },
 
     gpu:
     {  
-        type: String,
+        type: Number,
         required : [true, "GPU is required"]
     },
 
     ram:
     {  
-        type: String,
+        type: Number,
         required : [true, "RAM is required"]
     },
 
     storage:
     { 
-        type: String,
+        type: Number,
         required : [true, "Storage is required"]
     },
 
     cooling:
     {  
-        type: String,
+        type: Number,
         required : [true, "Cooling is required"]
     },
 
@@ -77,7 +77,7 @@ const CustomSchema = new mongoose.Schema({
         maxLength : [100, "cannot exceed one-hundred characters"]
     },
 
-    totalPrice:
+    grandTotal:
     {
         type: Number
     },

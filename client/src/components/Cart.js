@@ -6,49 +6,42 @@ import Venom from '../img/inventory.jpg';
 
 const Cart = (props) => {
 
-    const { orderList, setOrderList } = props;
+    // const { orderList, setOrderList } = props;
     const { inventoryProduct, setInventoryProduct } = props;
     const [user, setUser] = useState({});
 
-    const [quantity, setQuantity] = useState(0);
-
     const navigate = useNavigate();
 
-    console.log(orderList);
+    // console.log(orderList);
     console.log(inventoryProduct);
 
-    useEffect(() => {
-        axios.get('http://localhost:8000/api/computers/customs')
-            .then((res) => {
-                console.log(res.data);
-                setOrderList(res.data);
-            })
-            .catch((err) => console.log(err));
-    }, []);
+    // useEffect(() => {
+    //     axios.get('http://localhost:8000/api/computers/customs')
+    //         .then((res) => {
+    //             console.log(res.data);
+    //             setOrderList(res.data);
+    //         })
+    //         .catch((err) => console.log(err));
+    // }, []);
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/computers/inventory')
             .then((res) => {
                 console.log(res.data);
-                // for (let i = 0; i < 2; i++) {
-                //         setQuantity(i);
-                //         if (quantity[i] < 2) {
-                        setInventoryProduct(res.data);
-                //     }
-                // }
+                setInventoryProduct(res.data);
             })
             .catch((err) => console.log(err));
     }, []);
 
-    const deleteOrder = (idFromBelow) => {
-        console.log('====idFromBelow', idFromBelow)
-        axios.delete(`http://localhost:8000/api/computers/customs/${idFromBelow}`)
-            .then((res) => {
-                console.log(res.data);
-                setOrderList(orderList.filter((order, index) => order._id !== idFromBelow));
-            })
-            .catch((err) => console.log(err))
-    };
+    // const deleteOrder = (idFromBelow) => {
+    //     console.log('====idFromBelow', idFromBelow)
+    //     axios.delete(`http://localhost:8000/api/computers/customs/${idFromBelow}`)
+    //         .then((res) => {
+    //             console.log(res.data);
+    //             setOrderList(orderList.filter((order, index) => order._id !== idFromBelow));
+    //         })
+    //         .catch((err) => console.log(err))
+    // };
 
     const removeInventory = (idFromBelow) => {
         console.log('====idFromBelow', idFromBelow)
@@ -79,13 +72,13 @@ const Cart = (props) => {
                 <div className="cart-header-section">
                     <h3 id="cart-header">Your Cart</h3>
                     <div className="cart-link-spacer">
-                        <Link to='/computers/customs'>Build Another</Link>
+                        <Link to='/computers/customs'>Custom</Link>
                         <Link to='/computers/inventory'>Inventory</Link>
                     </div>
                     <hr style={{ height: "2px", backgroundColor: "white", border: "none", width: "100%" }} />
                     <br />
                 </div>
-                {
+                {/* {
                     orderList.map((order, index) => (
                         <tbody>
                             <div className="cart-card" key={index}>
@@ -119,7 +112,7 @@ const Cart = (props) => {
                         </tbody>
                     ))}
 
-                <br />
+                <br /> */}
 
                 {
                     inventoryProduct.map((product, index) => (

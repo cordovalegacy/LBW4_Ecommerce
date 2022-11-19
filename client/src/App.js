@@ -9,9 +9,9 @@ import Inventory from './components/Inventory';
 import About from './components/About';
 import Faq from './components/Faq';
 import Cart from './components/Cart';
-import Edit from './components/Edit';
+// import Edit from './components/Edit';
 import Confirmation from './components/Confirmation';
-import Checkout from './components/Checkout';
+// import Checkout from './components/Checkout';
 import LogReg from './views/LogReg';
 import Profile from './components/Profile';
 import Order from './components/Order';
@@ -119,8 +119,8 @@ function App() {
                     <Route path='/computers/about' element={<About />} />
                     <Route path='/computers/faq' element={<Faq />} />
                     <Route path='/computers/cart' element={<Cart inventoryProduct={inventoryProduct} setInventoryProduct={setInventoryProduct} orderList={orderList} setOrderList={setOrderList} />} />
-                    <Route path='/computers/customs/edit/:id' element={<Edit orderList={orderList} setOrderList={setOrderList} />} />
-                    <Route path='/computers/checkout/:id' element={<Checkout orderList={orderList} setOrderList={setOrderList} />} />
+                    {/* <Route path='/computers/customs/edit/:id' element={<Edit orderList={orderList} setOrderList={setOrderList} />} /> */}
+                    {/* <Route path='/computers/checkout/:id' element={<Checkout orderList={orderList} setOrderList={setOrderList} />} /> */}
                     <Route path='/computers/confirmation' element={<Confirmation />} />
                 </Routes>
                 <footer>
