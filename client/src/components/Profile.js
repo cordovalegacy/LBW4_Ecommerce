@@ -5,7 +5,7 @@ const Profile = (props) => {
 
     const [user, setUser] = useState({});
     const [orders, setOrders] = useState({});
-    const [isOpenAccount, setIsOpenAccount] = useState(false);
+    const [isOpenAccount, setIsOpenAccount] = useState(true);
     const [isOpenQuotes, setIsOpenQuotes] = useState(false);
     const [isOpenOrders, setIsOpenOrders] = useState(false);
 

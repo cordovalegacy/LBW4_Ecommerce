@@ -208,8 +208,8 @@ label {
 #home-content-button,
 #add-to-cart {
   justify-content: center;
-  width: 150px;
-  height: 50px;
+  width: 120px;
+  height: 3em;
   background-color: gold;
   margin-top: 25px;
   margin-bottom: 25px;
@@ -791,7 +791,7 @@ input {
 }
 
 #inventory-spec-list {
-  text-align: left;
+  text-align: center;
   color: darkgoldenrod;
   text-shadow: 1px 1px 10px violet;
   text-emphasis-color: gold;
@@ -803,8 +803,10 @@ input {
 .inventory-list {
   display: flex;
   flex-direction: column;
-  align-items: left;
-  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  margin-top: -30px;
+  text-align: center;
 }
 
 .inventory-product-wrapper {
@@ -815,16 +817,33 @@ input {
 }
 
 #inventory-image {
-  max-width: 350px;
-  max-height: 350px;
-  width: 30%;
-  height: 25%;
-  min-width: 100px;
-  min-height: 100px;
+  width: 150px;
+  height: 150px;
   margin-bottom: 30px;
   border-radius: 5px;
   box-shadow: 1px 1px 10px 5px gray;
   border: 1px solid white;
+}
+
+.inventory-carousel{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width:fit-content;
+  height: fit-content;
+}
+
+.inventory-carousel .carousel .slider-wrapper{
+  margin-top: 15%;
+  height: fit-content;
+  width: fit-content;
+  padding: 10px;
+  margin-bottom: -16%;
+}
+
+.inventory-carousel .carousel .thumb{
+  display: none;
 }
 
 /* -webkit-animation:spin 4s linear infinite;

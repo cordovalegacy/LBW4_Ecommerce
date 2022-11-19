@@ -2,6 +2,8 @@ import { useState } from 'react';
 import InventoryImage from '../img/inventory.jpg';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Inventory = (props) => {
 
@@ -53,44 +55,32 @@ const Inventory = (props) => {
             <div id='inventory-style-3'>
                 <div className='inventory-product-wrapper'>
                     <h3 id='inventory-contact'>Mid-Tier Gaming Computer</h3>
-                    <img id='inventory-image' src={InventoryImage} alt="product" />
-                    <div>
-                        <div className='inventory-list'>
-                            <h3 style={{ backgroundColor: "gray", opacity: "0.9", borderRadius: "10px" }}>{product.price}</h3>
-                        </div>
-                        <div className='inventory-list'>
+                    <div className='inventory-carousel'>
+                        <Carousel centerMode useKeyboardArrows showThumbs>
+                            <img id='inventory-image' src={InventoryImage} alt="product" />
+                        </Carousel>
+                        <ul className='inventory-list'>
+                            <h3 style={
+                                {
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    gap: "10px",
+                                    borderRadius: "10px"
+                                }
+                            }>{product.price}<button onClick={submitHandler} id='add-to-cart'>Add to cart</button></h3>
                             <li id='inventory-spec-list'>{product.cpu}</li>
-                        </div>
-                        <div className='inventory-list'>
                             <li id='inventory-spec-list'>{product.gpu}</li>
-                        </div>
-                        <div className='inventory-list'>
                             <li id='inventory-spec-list'>{product.ram}</li>
-                        </div>
-                        <div className='inventory-list'>
                             <li id='inventory-spec-list'>{product.storage}</li>
-                        </div>
-                        <div className='inventory-list'>
                             <li id='inventory-spec-list'>{product.cooling}</li>
-                        </div>
-                        <div className='inventory-list'>
                             <li id='inventory-spec-list'>{product.motherboard}</li>
-                        </div>
-                        <div className='inventory-list'>
                             <li id='inventory-spec-list'>{product.psu}</li>
-                        </div>
-                        <div className='inventory-list'>
                             <li id='inventory-spec-list'>{product.case}</li>
-                        </div>
-                        <div className='inventory-list'>
                             <li id='inventory-spec-list'>{product.accessories}</li>
-                        </div>
+                        </ul>
                     </div>
-                    {/* )
-                            })} */}
-                    <button onClick={submitHandler} id='add-to-cart'>Add to cart</button>
                 </div>
-
             </div>
             <div className='inventory-container-2'>
                 <div id='inventory-style-1'>

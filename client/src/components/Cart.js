@@ -72,8 +72,8 @@ const Cart = (props) => {
                 <div className="cart-header-section">
                     <h3 id="cart-header">Your Cart</h3>
                     <div className="cart-link-spacer">
-                        <Link to='/computers/customs'>Custom</Link>
-                        <Link to='/computers/inventory'>Inventory</Link>
+                        <Link style={{textDecoration: "none", backgroundColor: "darkgoldenrod", padding: "5px", textAlign: "center", border: "2px solid white", borderRadius: "2px"}} to='/computers/customs'>Custom</Link>
+                        <Link style={{textDecoration: "none", backgroundColor: "darkgoldenrod", padding: "5px", textAlign: "center", border: "2px solid white", borderRadius: "2px"}} to='/computers/inventory'>Inventory</Link>
                     </div>
                     <hr style={{ height: "2px", backgroundColor: "white", border: "none", width: "100%" }} />
                     <br />
