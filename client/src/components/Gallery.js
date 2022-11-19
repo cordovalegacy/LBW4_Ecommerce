@@ -44,6 +44,9 @@ const Gallery = () => {
 
     return (
         <div className='gallery-container'>
+            <h2>Explore some of our work...</h2>
+            <h3>Carefully crafted, meticulously assembled, and done quickly!</h3> 
+            <hr/>
             <div className='gallery-wrapper'>
                 <Carousel infiniteLoop useKeyboardArrows autoPlay>
                     <div>

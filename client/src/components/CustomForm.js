@@ -392,7 +392,7 @@ const CustomForm = (props) => {
                                 </ul>
                             </p>
                         </div>
-                        <div style={{ marginTop: "-10px" }} className='custom-nav-buttons'>
+                        <div style={{ marginTop: "-15px" }} className='custom-nav-buttons'>
                             <button id='account-btn' onClick={handleOpenCpu}>Prev</button>
                             <button id='account-btn' onClick={handleOpenRam}>Next</button>
                         </div>
@@ -559,7 +559,7 @@ const CustomForm = (props) => {
                                 </ul>
                             </p>
                         </div>
-                        <div className='custom-nav-buttons'>
+                        <div style={{marginTop: "-5px"}} className='custom-nav-buttons'>
                             <button id='account-btn' onClick={handleOpenStorage}>Prev</button>
                             <button id='account-btn' onClick={handleOpenMisc}>Next</button>
                         </div>
