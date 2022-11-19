@@ -4,6 +4,11 @@ const ComputerSchema = new mongoose.Schema({
 
     price: 
     {  
+        type: Number
+    },
+
+    Mutant: 
+    {  
         type: String
     },
 

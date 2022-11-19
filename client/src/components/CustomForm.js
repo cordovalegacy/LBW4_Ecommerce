@@ -185,23 +185,7 @@ const CustomForm = (props) => {
     return (
         <form className='custom-form-container'>
             {!isOpenAccount && !isOpenGpu && !isOpenCpu && !isOpenGpu && !isOpenRam && !isOpenStorage && !isOpenCooling && !isOpenMisc ?
-                (<button
-                    style={
-                        {
-                            position: "absolute",
-                            backgroundColor: "goldenrod",
-                            color: "white",
-                            border: ".5px solid black",
-                            width: "fit-content",
-                            height: "min-content",
-                            fontSize: "50px",
-                            borderRadius: "5px",
-                            textShadow: "2px 2px 10px black",
-                            padding: "1%",
-                            cursor: "pointer",
-                            textAlign: "center"
-                        }
-                    }
+                (<button id='enter-custom-page-button'
                     onClick={handleOpenAccount}>Let's Build!
                 </button>)
                 : null}

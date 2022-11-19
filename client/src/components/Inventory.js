@@ -1,17 +1,25 @@
 import { useState } from 'react';
-import InventoryImage from '../img/inventory.jpg';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import InventoryImage from '../img/inventory.jpg';
+import Inventory1 from '../img/inventory1.jpeg';
+import Inventory2 from '../img/inventory2.jpeg';
+import Inventory3 from '../img/inventory3.jpeg';
+import Inventory4 from '../img/inventory4.jpeg';
+import Inventory5 from '../img/inventory5.jpeg';
 
 const Inventory = (props) => {
 
     const { inventoryProduct, setInventoryProduct } = props;
+    const quantity = 1;
+    const theme = "Mutant";
 
     const navigate = useNavigate();
 
     const product = {
+        theme: "Mutant",
         cpu: "Ryzen 5 5600x",
         gpu: "RTX 3050",
         ram: "16gb ddr4 3200mhz",
@@ -21,7 +29,7 @@ const Inventory = (props) => {
         cooling: "Stock (air)",
         case: "mATX case w/ 6 fans",
         accessories: "vertical gpu riser cable",
-        price: "$950",
+        price: "950",
         quantity: "1"
     }
 
@@ -56,19 +64,16 @@ const Inventory = (props) => {
                 <div className='inventory-product-wrapper'>
                     <h3 id='inventory-contact'>Mid-Tier Gaming Computer</h3>
                     <div className='inventory-carousel'>
-                        <Carousel centerMode useKeyboardArrows showThumbs>
+                        <Carousel infiniteLoop={true} autoFocus={true} transitionTime={800} autoPlay={true} centreMode={true} useKeyboardArrows={true} emulateTouch={true} swipeable={true} labels={false}>
                             <img id='inventory-image' src={InventoryImage} alt="product" />
+                            <img id='inventory-image' src={Inventory1} alt="product" />
+                            <img id='inventory-image' src={Inventory2} alt="product" />
+                            <img id='inventory-image' src={Inventory3} alt="product" />
+                            <img id='inventory-image' src={Inventory4} alt="product" />
+                            <img id='inventory-image' src={Inventory5} alt="product" />
                         </Carousel>
                         <ul className='inventory-list'>
-                            <h3 style={
-                                {
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    gap: "10px",
-                                    borderRadius: "10px"
-                                }
-                            }>{product.price}<button onClick={submitHandler} id='add-to-cart'>Add to cart</button></h3>
+                            <li id='inventory-spec-list'>{product.theme}</li>
                             <li id='inventory-spec-list'>{product.cpu}</li>
                             <li id='inventory-spec-list'>{product.gpu}</li>
                             <li id='inventory-spec-list'>{product.ram}</li>
@@ -78,6 +83,18 @@ const Inventory = (props) => {
                             <li id='inventory-spec-list'>{product.psu}</li>
                             <li id='inventory-spec-list'>{product.case}</li>
                             <li id='inventory-spec-list'>{product.accessories}</li>
+                            <span style={{fontWeight: "bolder"}} id='error-red'>qty: {quantity}</span>
+                            <h3 style={
+                                {
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    gap: "10px",
+                                    borderRadius: "10px",
+                                    color: "greenyellow",
+                                    textShadow: "0px 0px 5px white"
+                                }
+                            }>${product.price}<button onClick={submitHandler} id='add-to-cart'>Add to cart</button></h3>
                         </ul>
                     </div>
                 </div>

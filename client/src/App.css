@@ -415,6 +415,21 @@ input {
   flex-direction: column;
 }
 
+#enter-custom-page-button {
+  position: absolute;
+  background-color: goldenrod;
+  color: white;
+    border: .5px solid black;
+    width: fit-content;
+    height: min-content;
+    font-size: 50px;
+    border-radius: 5px;
+    text-shadow: 2px 2px 10px black;
+    padding: 1%;
+    cursor: pointer;
+    text-align: center;
+}
+
 /* CUSTOM FORM END */
 
 /* ABOUT SECTION START */
@@ -785,7 +800,7 @@ input {
   display: flex;
   flex: 1;
   height: max-content;
-  padding: 2%;
+  padding: 1%;
   opacity: 0.95;
   border-radius: 5px 5px 5px;
 }
@@ -795,7 +810,7 @@ input {
   color: darkgoldenrod;
   text-shadow: 1px 1px 10px violet;
   text-emphasis-color: gold;
-  -webkit-text-stroke: 0.5px gold;
+  -webkit-text-stroke: 1px gold;
   margin-bottom: 1px;
   font-size: large;
 }
@@ -803,9 +818,10 @@ input {
 .inventory-list {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: fit-content;
   height: fit-content;
-  margin-top: -30px;
   text-align: center;
 }
 
@@ -825,25 +841,27 @@ input {
   border: 1px solid white;
 }
 
-.inventory-carousel{
+.inventory-carousel {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  width:fit-content;
+  width: 57em;
   height: fit-content;
 }
 
-.inventory-carousel .carousel .slider-wrapper{
-  margin-top: 15%;
+.inventory-carousel .carousel .slider-wrapper {
   height: fit-content;
-  width: fit-content;
-  padding: 10px;
-  margin-bottom: -16%;
+  width: 18em;
+  padding: 1em;
+  border: 5px solid gold;
+  box-shadow: 0px 0px 10px 0px white;
+  border-radius: 30px;
 }
 
-.inventory-carousel .carousel .thumb{
-  display: none;
+.inventory-carousel .carousel .thumb {
+  height: 3.5em;
+  padding: 0;
 }
 
 /* -webkit-animation:spin 4s linear infinite;
@@ -1002,7 +1020,7 @@ input {
 }
 
 #cart-gear {
-  width: 100px;
+  width: 150px;
   -webkit-animation: spin 4s linear infinite;
   -moz-animation: spin 4s linear infinite;
   animation: spin 4s linear infinite;
@@ -1053,6 +1071,14 @@ tr {
 
 .cart-column-2 {
   margin-right: 10px;
+}
+
+.cart-column-3 {
+  background-color: violet;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 2px solid black;
 }
 
 #cart-center {
@@ -1143,18 +1169,31 @@ tr {
 
 .checkout-container {
   margin-top: 15%;
-  margin-bottom: 15%;
+  margin-bottom: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 25px;
 }
 
 .checkout-links {
   display: flex;
-  gap: 50px;
+  align-items: center;
+  gap: 40px;
   font-weight: bold;
+}
+
+.checkout-links h2 {
+  color: gold;
+  font-size: 50px;
+  text-decoration: underline;
+  flex: 4;
+}
+
+#align-order-links{
+  align-self: center;
+  flex: 3;
+  width: max-content;
 }
 
 #checkout-header {
@@ -1172,10 +1211,16 @@ tr {
 }
 
 .checkout-content-background {
+  flex: 1;
+  display: flex;
+  border: 2px solid violet;
+  border-radius: 5px;
+  height: 100%;
+  flex-direction: column;
+  align-items: stretch;
   background-image: linear-gradient(to bottom, rgba(128, 128, 128, 0.5), rgba(0, 0, 0, 0.300), rgba(128, 128, 128, 0.5));
-  box-shadow: 1px 1px 10px 1px darkgoldenrod;
-  padding: 8px;
-  margin-top: -5%;
+  box-shadow: 1px 1px 15px 1px violet;
+  padding: 10px;
 }
 
 #checkout-content {
@@ -1183,6 +1228,7 @@ tr {
   color: gold;
   text-emphasis-color: gold;
   -webkit-text-stroke: 1px white;
+  text-align: calc(25%);
 }
 
 #checkout-btn {
@@ -1209,6 +1255,25 @@ tr {
   transition: 1s;
   color: white;
   opacity: 0.9;
+}
+
+#breakdown-order{
+  color: gold;
+  text-align: left;
+  list-style:square;
+}
+
+.breakdown-summary-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: -25px;
+  padding: 1em;
+}
+
+.order-page-layout-flex{
+  display: flex;
+  gap: 10%;
 }
 
 /* CHECKOUT SECTION END */
