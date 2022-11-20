@@ -72,8 +72,8 @@ const Cart = (props) => {
                 <div className="cart-header-section">
                     <h3 id="cart-header">Your Cart</h3>
                     <div className="cart-link-spacer">
-                        <Link style={{textDecoration: "none", backgroundColor: "darkgoldenrod", padding: "5px", textAlign: "center", border: "2px solid white", borderRadius: "2px"}} to='/computers/customs'>Custom</Link>
-                        <Link style={{textDecoration: "none", backgroundColor: "darkgoldenrod", padding: "5px", textAlign: "center", border: "2px solid white", borderRadius: "2px"}} to='/computers/inventory'>Inventory</Link>
+                        <Link style={{ textDecoration: "none", backgroundColor: "darkgoldenrod", padding: "5px", textAlign: "center", border: "2px solid white", borderRadius: "2px" }} to='/computers/customs'>Custom</Link>
+                        <Link style={{ textDecoration: "none", backgroundColor: "darkgoldenrod", padding: "5px", textAlign: "center", border: "2px solid white", borderRadius: "2px" }} to='/computers/inventory'>Inventory</Link>
                     </div>
                     <hr style={{ height: "2px", backgroundColor: "white", border: "none", width: "100%" }} />
                     <br />
@@ -116,32 +116,27 @@ const Cart = (props) => {
 
                 {
                     inventoryProduct.map((product, index) => (
-                        <tbody>
                             <div className="cart-card" key={index}>
-                                <tr>
-                                    <div className="cart-column">
-                                        <div id="cart-center">
-                                            <thead id="cart-custom">Mid-Tier</thead>
-                                            <img id='inventory-cart-pic' src={Venom} alt='computer-photo' />
-                                            <p id="cart-custom">Inventory</p>
-                                        </div>
-                                        <div>
-                                            <button id='cart-btn-remove' onClick={() => removeInventory(product._id)}>Remove From Cart</button>                                    </div>
+                                <div className="cart-column">
+                                    <div id="cart-center">
+                                        <thead id="cart-custom">Mid-Tier</thead>
+                                        <img id='inventory-cart-pic' src={Venom} alt='computer-photo' />
+                                        <p id="cart-custom">Inventory</p>
                                     </div>
-                                    <td>
-                                        <ul className="cart-column-2">
-                                            <li id="cart-list">Price:<span style={{ color: "gold", textDecoration: "underline" }}>{product.price}</span></li>
-                                            <li id="cart-list">CPU:  {product.cpu}</li>
-                                            <li id="cart-list">GPU:  {product.gpu}</li>
-                                            <li id="cart-list">RAM:  {product.ram}</li>
-                                            <li id="cart-list">Storage:  {product.storage}</li>
-                                            <li id="cart-list">Cooling:  {product.cooling}</li>
-                                        </ul>
-                                        <button id="cart-btn-checkout" onClick={() => navigate(`/computers/order/${product._id}`)}>Review Order</button>
-                                    </td>
-                                </tr>
+                                    <div>
+                                        <button id='cart-btn-remove' onClick={() => removeInventory(product._id)}>Remove From Cart</button>                                    </div>
+                                </div>
+                                <ul className="cart-column-2">
+                                    <li id="cart-list">Price:<span style={{ color: "gold", textDecoration: "underline" }}>{product.price}</span></li>
+                                    <li id="cart-list">CPU:  {product.cpu}</li>
+                                    <li id="cart-list">GPU:  {product.gpu}</li>
+                                    <li id="cart-list">RAM:  {product.ram}</li>
+                                    <li id="cart-list">Storage:  {product.storage}</li>
+                                    <li id="cart-list">Cooling:  {product.cooling}</li>
+                                    <br/>
+                                    <button id="cart-btn-checkout" onClick={() => navigate(`/computers/order/${product._id}`)}>Review Order</button>
+                                </ul>
                             </div>
-                        </tbody>
                     ))}
             </table>
         </div>

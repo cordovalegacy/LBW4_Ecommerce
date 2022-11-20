@@ -85,8 +85,8 @@ function App() {
                     <Link to='/computers/gallery'>Gallery</Link>
                     <Link to='/computers/customs'>Custom</Link>
                     <Link to='/computers/inventory'>Inventory</Link>
-                    <Link to='/computers/about'>Company</Link>
-                    <Link to='/computers/faq'>FAQ's</Link>
+                    <Link id='company-link' to='/computers/about'>Company</Link>
+                    <Link id='faq-link' to='/computers/faq'>FAQ's</Link>
                     <Link to='/computers/cart'><img id='cart' src={CartIcon} alt='cart' /></Link>
                     <br />
                     <div className="home-login-registration">
@@ -98,8 +98,8 @@ function App() {
                             <div className='menu-spacer'>
                                 <div className='menu'>
                                     {isOpen ? <div style={{ textAlign: "right", borderLeft: "none" }} id='display-name'>{displayName}</div> : null}
-                                    <Link to='/computers/profile/:username'>Profile</Link>
-                                    <Link to='/computers/logreg'>Register/Login</Link>
+                                    <Link id='profile-mobile-link' to='/computers/profile/:username'>Profile</Link>
+                                    <Link id='logreg-mobile-link' to='/computers/logreg'>Register/Login</Link>
                                     <button id='logout-btn' onClick={logout}>Logout</button>
                                     <button id='account-close-btn' onClick={handleClose}>Close</button>
                                 </div>

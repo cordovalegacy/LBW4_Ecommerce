@@ -205,7 +205,7 @@ const CustomForm = (props) => {
                     )
                     : null}
                 {isOpenAccount ? (
-                    <div>
+                    <div className='main-content-spreader'>
                         <div style={
                             {
                                 flexDirection: "row",
@@ -268,8 +268,7 @@ const CustomForm = (props) => {
                                     <span id='error-red'>Included in price is a compatible motherboard, power supply, and case (~$450 value)</span></p>
                             </div>
                         </div>
-                        <div
-                            className='custom-nav-wrapper'>
+                        <div className='custom-nav-buttons'>
                             <button id='account-btn' onClick={handleOpenCpu}>Next</button>
                         </div>
                     </div>
@@ -331,7 +330,7 @@ const CustomForm = (props) => {
                     </div>
                 ) : null}
                 {isOpenGpu ? (
-                    <div>
+                    <div className='main-content-spreader'>
                         <div style={
                             {
                                 flexDirection: "row",
@@ -392,14 +391,14 @@ const CustomForm = (props) => {
                                 </ul>
                             </p>
                         </div>
-                        <div style={{ marginTop: "-15px" }} className='custom-nav-buttons'>
+                        <div style={{ marginTop: "-1px" }} className='custom-nav-buttons'>
                             <button id='account-btn' onClick={handleOpenCpu}>Prev</button>
                             <button id='account-btn' onClick={handleOpenRam}>Next</button>
                         </div>
                     </div>
                 ) : null}
                 {isOpenRam ? (
-                    <div>
+                    <div className='main-content-spreader'>
                         <div style={
                             {
                                 flexDirection: "row",
@@ -452,7 +451,7 @@ const CustomForm = (props) => {
                     </div>
                 ) : null}
                 {isOpenStorage ? (
-                    <div>
+                    <div className='main-content-spreader'>
                         <div style={
                             {
                                 flexDirection: "row",
@@ -505,14 +504,14 @@ const CustomForm = (props) => {
                                 </ul>
                             </p>
                         </div>
-                        <div style={{ marginTop: "-13px" }} className='custom-nav-buttons'>
+                        <div style={{ marginTop: "-1px" }} className='custom-nav-buttons'>
                             <button id='account-btn' onClick={handleOpenRam}>Prev</button>
                             <button id='account-btn' onClick={handleOpenCooling}>Next</button>
                         </div>
                     </div>
                 ) : null}
                 {isOpenCooling ? (
-                    <div>
+                    <div className='main-content-spreader'>
                         <div style={
                             {
                                 flexDirection: "row",
@@ -559,14 +558,14 @@ const CustomForm = (props) => {
                                 </ul>
                             </p>
                         </div>
-                        <div style={{marginTop: "-5px"}} className='custom-nav-buttons'>
+                        <div style={{ marginTop: "-1px" }} className='custom-nav-buttons'>
                             <button id='account-btn' onClick={handleOpenStorage}>Prev</button>
                             <button id='account-btn' onClick={handleOpenMisc}>Next</button>
                         </div>
                     </div>
                 ) : null}
                 {isOpenMisc ? (
-                    <div>
+                    <div className='main-content-spreader'>
                         <div style={
                             {
                                 flexDirection: "row",
@@ -608,10 +607,11 @@ const CustomForm = (props) => {
                                 </ul>
                             </p>
                         </div>
-                        <div style={{ marginTop: "-7px" }} className='custom-nav-buttons'>
+                        <div style={{ marginTop: "-1px" }} className='custom-nav-buttons'>
                             <button id='account-btn' onClick={handleOpenCooling}>Prev</button>
                             <button type='submit' onClick={submitHandler} id='account-btn'>Submit</button>
                         </div>
+                        <button type='submit' onClick={submitHandler} id='account-btn1'>Submit</button>
                     </div>
                 ) : null}
             </div>
