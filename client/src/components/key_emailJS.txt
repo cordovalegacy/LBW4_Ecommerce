@@ -1,0 +1,41 @@
+CPU
+Ryzen 5 5600x = 200
+Ryzen 7 5800x = 250
+Ryzen 9 5900x = 350
+Ryzen 5 7600x = 300
+Ryzen 7 7700x = 360
+Ryzen 9 7900x = 550
+
+--------------------------------------------------
+
+GPU
+RTX 3050 = 300
+RTX 3060 = 400
+RTX 3070 = 550
+RTX 3080 = 800
+RTX 4080 = 1500
+RTX 4090 = 2300
+
+---------------------------------------------------
+
+RAM
+16gb ddr4 or ddr5 = 100
+32gb ddr4 or ddr5 = 200
+64gb ddr4 or ddr5 = 300
+
+---------------------------------------------------
+
+STORAGE
+500gb m.2 ssd nvme = 75
+1tb m.2 ssd nvme = 125
+2tb m.2 ssd nvme = 250
+1tb hdd = 40
+2tb hdd = 75
+
+----------------------------------------------------
+
+COOLING
+Stock (air) = 40
+Heavy Duty (air) = 60
+AIO (liquid) = 150
+AIO w/ LCD Screen (liquid) = 300 

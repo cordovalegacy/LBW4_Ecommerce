@@ -91,7 +91,8 @@ const Profile = (props) => {
                     {isOpenQuotes ? (
                         <ul className="account-content-wrapper">
                             <h3>Your Quotes</h3>
-                            {
+                            <li className="account-content">Nothing to display</li>
+                            {/* {
                                 quotes ?
                                     (
                                         <div>
@@ -137,7 +138,7 @@ const Profile = (props) => {
                                                 <li style={{ color: "gold", textShadow: "0px 0px 10px black" }} id="cart-list">{quotes[5].createdAt}</li>
                                             </ol>
                                         </div>
-                                    ) : null}
+                                    ) : null} */}
                         </ul>
                     ) : null}
                     {isOpenOrders ? (

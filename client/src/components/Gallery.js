@@ -45,10 +45,10 @@ const Gallery = () => {
     return (
         <div className='gallery-container'>
             <h2>Explore some of our work...</h2>
-            <h3>Carefully crafted, meticulously assembled, and done quickly!</h3> 
-            <hr/>
+            <h3>Carefully crafted, meticulously assembled, and done right!</h3>
+            <hr style={{ border: "2px solid gray", width: "100%" }} />
             <div className='gallery-wrapper'>
-                <Carousel infiniteLoop useKeyboardArrows autoPlay>
+                <Carousel infiniteLoop useKeyboardArrows autoPlay emulateTouch={true} swipeable={true}>
                     <div>
                         <p id='carousel-p'>Mid-Tier</p>
                         <img id='img-width' src={Bart} alt='bart' />
