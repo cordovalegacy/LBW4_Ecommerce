@@ -10,6 +10,9 @@ const Profile = (props) => {
     const [isOpenQuotes, setIsOpenQuotes] = useState(false);
     const [isOpenOrders, setIsOpenOrders] = useState(false);
 
+    const quotesArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const orderArray = [0, 1, 2, 3, 4, 5];
+
     const handleOpenAccount = () => {
         setIsOpenAccount(!isOpenAccount)
         setIsOpenQuotes(null)
@@ -88,49 +91,11 @@ const Profile = (props) => {
                             <li className="account-content">Nothing to display</li>
                             {/* {
                                 quotes ? quotes.map((quote, index) => {
-                                    <div key={index}>
-                                        <ol className="cart-column-3">
-                                            <li id="cart-list">{quote[0].grandTotal}</li>
+                                        <ol key={quote[0]} className="cart-column-3">
                                             <li id="cart-list">{quote[0].theme}</li>
                                             <li id="cart-list">{quote[0].special}</li>
                                             <li style={{ color: "gold", textShadow: "0px 0px 10px black" }} id="cart-list">{quotes[0].createdAt}</li>
                                         </ol>
-                                        <hr />
-                                        <ol className="cart-column-3">
-                                            <li id="cart-list">{quote[1].grandTotal}</li>
-                                            <li id="cart-list">{quote[1].theme}</li>
-                                            <li id="cart-list">{quote[1].special}</li>
-                                            <li style={{ color: "gold", textShadow: "0px 0px 10px black" }} id="cart-list">{quotes[1].createdAt}</li>
-                                        </ol>
-                                        <hr />
-                                        <ol className="cart-column-3">
-                                            <li id="cart-list">{quote[2].grandTotal}</li>
-                                            <li id="cart-list">{quote[2].theme}</li>
-                                            <li id="cart-list">{quote[2].special}</li>
-                                            <li style={{ color: "gold", textShadow: "0px 0px 10px black" }} id="cart-list">{quotes[2].createdAt}</li>
-                                        </ol>
-                                        <hr />
-                                        <ol className="cart-column-3">
-                                            <li id="cart-list">{quote[3].grandTotal}</li>
-                                            <li id="cart-list">{quote[3].theme}</li>
-                                            <li id="cart-list">{quote[3].special}</li>
-                                            <li style={{ color: "gold", textShadow: "0px 0px 10px black" }} id="cart-list">{quotes[3].createdAt}</li>
-                                        </ol>
-                                        <hr />
-                                        <ol className="cart-column-3">
-                                            <li id="cart-list">{quote[4].grandTotal}</li>
-                                            <li id="cart-list">{quote[4].theme}</li>
-                                            <li id="cart-list">{quote[4].special}</li>
-                                            <li style={{ color: "gold", textShadow: "0px 0px 10px black" }} id="cart-list">{quotes[4].createdAt}</li>
-                                        </ol>
-                                        <hr />
-                                        <ol className="cart-column-3">
-                                            <li id="cart-list">{quote[5].grandTotal}</li>
-                                            <li id="cart-list">{quote[5].theme}</li>
-                                            <li id="cart-list">{quote[5].special}</li>
-                                            <li style={{ color: "gold", textShadow: "0px 0px 10px black" }} id="cart-list">{quotes[5].createdAt}</li>
-                                        </ol>
-                                    </div>
                                 }) : <h3>Nothing to display here</h3>} */}
                         </ul>
                     ) : null}

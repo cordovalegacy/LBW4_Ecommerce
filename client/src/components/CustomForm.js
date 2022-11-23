@@ -162,6 +162,7 @@ const CustomForm = (props) => {
                     });
             })
             .catch((err) => {
+                alert("Please make sure you are logged in/filled out entire form")
                 console.log(err)
                 console.log(err.response);
                 console.log(err.response.data.err.errors);
